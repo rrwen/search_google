@@ -3,15 +3,16 @@ search_google
 
 | Richard Wen
 | rrwen.dev@gmail.com
-  
-  
+
+
 A command line tool for Google web and image search.
-  
+
+
 Install
 -------
 
 1. Install `Python <https://www.python.org/downloads/>`_
-2. Install search_google via ``pip``
+2. Install `search_google <https://pypi.python.org/pypi/search-google>`_ via ``pip``
 
 ::
   
@@ -62,16 +63,15 @@ Uploading to PyPi
 *****************
 
 1. Ensure `twine <https://pypi.python.org/pypi/twine>`_ is installed ``pip install twine``
-2. Ensure `wheel <https://pypi.python.org/pypi/wheel>`_ is installed ``pip install wheel``
-3. Create source distribution
-4. Create wheels
-5. Upload to `PyPi <https://pypi.python.org/pypi>`_
+2. Delete ``dist`` directory
+3. Update the versions in ``setup.py`` and ``docs/source/conf.py``
+4. Perform `Documentation Maintenance`_
+5. Create source distribution
+6. Upload to `PyPi <https://pypi.python.org/pypi>`_
 
 ::
   
   python setup.py sdist
-  python setup.py bdist_wheel
-  python setup.py bdist_wheel --universal
   twine upload dist/*
   
 Implementation

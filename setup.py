@@ -2,14 +2,22 @@
 
 from setuptools import setup
 
+def readme():
+  with open('README.rst') as f:
+    for i in range(9):
+      next(f)
+    return f.read()[1:]
+        
 setup(
   name='search_google',
-  version='0.0.1',
+  version='1.0.2',
   description='A command line tool for Google web and image search.',
+  long_description=readme(),
   author='Richard Wen',
   author_email='rrwen.dev@gmail.com',
   license='MIT',
   url='https://github.com/rrwen/search_google',
+  download_url='https://github.com/rrwen/search_google/archive/master.zip',
   keywords = [
     'google',
     'api',
