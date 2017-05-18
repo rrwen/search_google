@@ -15,4 +15,10 @@ Install
 ::
   
   pip install search_google
-  
+
+Developer Notes
+---------------
+
+Generate the documentation in ``docs/``::
+
+  sphinx -b docs/source docs

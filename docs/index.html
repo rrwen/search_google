@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>search_google &#8212; search_google 0.0.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.0.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">search_google 0.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="search-google">
+<h1>search_google<a class="headerlink" href="#search-google" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="line-block">
+<div class="line">Richard Wen</div>
+<div class="line"><a class="reference external" href="mailto:rrwen&#46;dev&#37;&#52;&#48;gmail&#46;com">rrwen<span>&#46;</span>dev<span>&#64;</span>gmail<span>&#46;</span>com</a></div>
+</div>
+<p>A command line tool for Google web and image search.</p>
+<p>Tested for Python 2.6 and 3.5 using <a class="reference external" href="https://www.continuum.io/downloads">Anaconda 4.3.1</a>.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">h</span>
+<span class="n">search_google</span> <span class="n">cats</span>
+<span class="n">search_google</span> <span class="n">cats</span> <span class="o">--</span><span class="n">searchType</span><span class="o">=</span><span class="n">image</span>
+</pre></div>
+</div>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Install <a class="reference external" href="https://www.python.org/downloads/">Python</a></li>
+<li>Install search_google via <code class="docutils literal"><span class="pre">pip</span></code></li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">search_google</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>A <a class="reference external" href="https://support.google.com/customsearch/answer/2649143?hl=en">CSE ID</a> and a <a class="reference external" href="https://developers.google.com/api-client-library/python/auth/api-keys">Google API developer key</a> are required to use this package. A <a class="reference external" href="https://www.google.com/gmail">Gmail</a> account will also be required to create and access the ID and developer key.</p>
+<p>When prompted, use your Gmail account for login access.</p>
+<p><em>Note: Instructions and links were written on May 17, 2017, and are subject to change depending on Google&#8217;s website.</em></p>
+<div class="section" id="google-custom-search-engine">
+<h3>Google Custom Search Engine<a class="headerlink" href="#google-custom-search-engine" title="Permalink to this headline">¶</a></h3>
+<p>A <a class="reference external" href="https://developers.google.com/api-client-library/python/apis/customsearch/v1">Google Custom Search Engine (CSE)</a> and a <a class="reference external" href="https://support.google.com/customsearch/answer/2649143?hl=en">CSE ID</a> can be setup with the following instructions:</p>
+<ol class="arabic simple">
+<li>Go to the <a class="reference external" href="http://cse.google.com/manage/all">CSE Control Panel</a></li>
+<li>Click <strong>Add</strong></li>
+<li>Enter a website in the box under <strong>Sites to search</strong> such as &#8220;www.google.com&#8221;</li>
+<li>Click <strong>Create</strong></li>
+<li>Go back to the <a class="reference external" href="http://cse.google.com/manage/all">CSE Control Panel</a></li>
+<li>Select your created search engine</li>
+<li>Turn on <strong>Image search</strong></li>
+<li>For <strong>Sites to search</strong>, select <strong>Search the entire web but emphasize included sites</strong></li>
+<li>Under <strong>Sites to search</strong>, click checkbox next to <strong>Site</strong></li>
+<li>Under <strong>Sites to search</strong>, click <strong>Delete</strong></li>
+<li>Under <strong>Details</strong>, click <strong>Search engine ID</strong></li>
+<li>Set <code class="docutils literal"><span class="pre">cx</span></code> by replacing &#8220;your_cse_id&#8221; with the <strong>Search engine ID</strong></li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">s</span> <span class="n">cx</span><span class="o">=</span><span class="s2">&quot;your_cse_id&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="google-api">
+<h3>Google API<a class="headerlink" href="#google-api" title="Permalink to this headline">¶</a></h3>
+<p>An <a class="reference external" href="https://developers.google.com/api-client-library/python/auth/api-keys">API developer key</a> for the <a class="reference external" href="https://developers.google.com/api-client-library/python/">Google Application Programming Interface (API)</a> can be setup with the following instructions:</p>
+<ol class="arabic simple">
+<li>Enable <a class="reference external" href="https://console.developers.google.com/apis/api/customsearch.googleapis.com">Google Custom Search Engine</a></li>
+<li>Go to <a class="reference external" href="https://console.developers.google.com/apis/credentials">Google API Console Credentials</a></li>
+<li>Click <strong>Create Credentials -&gt; API Key</strong></li>
+<li>Set <code class="docutils literal"><span class="pre">build_developerKey</span></code> by replacing &#8220;your_dev_key&#8221; with the <strong>API Key</strong></li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">s</span> <span class="n">build_developerKey</span><span class="o">=</span><span class="s2">&quot;your_dev_key&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="modules">
+<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="module-cse">
+<span id="cse"></span><h3>cse<a class="headerlink" href="#module-cse" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="cse.results">
+<em class="property">class </em><code class="descclassname">cse.</code><code class="descname">results</code><span class="sig-paren">(</span><em>buildargs={'serviceName': 'customsearch'</em>, <em>'version': 'v1'}</em>, <em>cseargs={'num': 3}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cse.html#results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cse.results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Google Custom Search Engine (CSE) API results.</p>
+<p>Uses the <a class="reference external" href="https://developers.google.com/api-client-library/python/apis/customsearch/v1">Google Custom Search Engine API</a> 
+to search webpages and images using queries.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>buildargs (dict):</dt>
+<dd>Named arguments for <a class="reference external" href="https://google.github.io/google-api-python-client/docs/epy/googleapiclient.discovery-module.html#build">googleapiclient.build</a>.</dd>
+<dt>cseargs (dict):</dt>
+<dd>Named arguments for <a class="reference external" href="https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html">cse.list</a>.</dd>
+</dl>
+</dd>
+<dt>Attributes:</dt>
+<dd><dl class="first last docutils">
+<dt>metadata (dict):</dt>
+<dd>object returned from <a class="reference external" href="https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html">cse.list</a>.</dd>
+<dt>buildargs (dict):</dt>
+<dd>Same as argument <code class="docutils literal"><span class="pre">buildargs</span></code> for reference of inputs.</dd>
+<dt>csedargs (dict):</dt>
+<dd>Same as argument <code class="docutils literal"><span class="pre">cseargs</span></code> for reference of inputs.</dd>
+</dl>
+</dd>
+<dt>Examples: </dt>
+<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Import the cse module for the results class</span>
+<span class="kn">from</span> <span class="nn">search_google</span> <span class="k">import</span> <span class="n">cse</span>
+
+<span class="c1"># Define buildargs for cse api</span>
+<span class="n">buildargs</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;serviceName&quot;</span><span class="p">:</span> <span class="s2">&quot;customsearch&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;developerKey&quot;</span><span class="p">:</span> <span class="s2">&quot;your_api_key&quot;</span>
+<span class="p">}</span>
+
+<span class="c1"># Define cseargs for search</span>
+<span class="n">cseargs</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword query&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;cx&quot;</span><span class="p">:</span> <span class="s2">&quot;your_cse_id&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;num&quot;</span><span class="p">:</span> <span class="mi">3</span>
+<span class="p">}</span>
+
+<span class="c1"># Create a results object</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">cse</span><span class="o">.</span><span class="n">results</span><span class="p">(</span><span class="n">buildargs</span><span class="p">,</span> <span class="n">cseargs</span><span class="p">)</span>
+
+<span class="c1"># Preview the search results</span>
+<span class="n">results</span><span class="o">.</span><span class="n">preview</span><span class="p">()</span>
+
+<span class="c1"># Obtain the url links from the search</span>
+<span class="c1"># Links are inside results[&#39;items&#39;] list</span>
+<span class="n">links</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">get_values</span><span class="p">(</span><span class="s1">&#39;items&#39;</span><span class="p">,</span> <span class="s1">&#39;link&#39;</span><span class="p">)</span>
+
+<span class="c1"># Obtain the url links from the search</span>
+<span class="n">links</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">links</span>
+
+<span class="c1"># Save the search result metadata to a json file</span>
+<span class="n">results</span><span class="o">.</span><span class="n">save_metadata</span><span class="p">(</span><span class="s1">&#39;metadata.json&#39;</span><span class="p">)</span>
+
+<span class="c1"># Save the search result links to a text file</span>
+<span class="n">results</span><span class="o">.</span><span class="n">save_links</span><span class="p">(</span><span class="s1">&#39;links.txt&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="method">
+<dt id="cse.results.get_values">
+<code class="descname">get_values</code><span class="sig-paren">(</span><em>k</em>, <em>v</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cse.html#results.get_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cse.results.get_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of values from the key value metadata attribute.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>k (str):</dt>
+<dd>the key in <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata</dd>
+<dt>v (str):</dt>
+<dd>the values from each item in the key of <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata</dd>
+</dl>
+</dd>
+<dt>Returns:</dt>
+<dd>A list containing all the <code class="docutils literal"><span class="pre">v</span></code> values in the <code class="docutils literal"><span class="pre">k</span></code> key for the  <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata attribute.</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cse.results.links">
+<code class="descname">links</code><a class="headerlink" href="#cse.results.links" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of str: Web links to search results using <a class="reference internal" href="#cse.results.get_values" title="cse.results.get_values"><code class="xref py py-func docutils literal"><span class="pre">cse.results.get_values()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cse.results.preview">
+<code class="descname">preview</code><span class="sig-paren">(</span><em>n=10</em>, <em>k='items'</em>, <em>kheader='displayLink'</em>, <em>klink='link'</em>, <em>kdescription='snippet'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cse.html#results.preview"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cse.results.preview" title="Permalink to this definition">¶</a></dt>
+<dd><p>Print a preview of the search results.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>n (int):</dt>
+<dd>Maximum number of search results to preview</dd>
+<dt>k (str):</dt>
+<dd>Key in <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata to represent</dd>
+<dt>kheader (str):</dt>
+<dd>Key in <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata[<code class="docutils literal"><span class="pre">k</span></code>] to use as the header</dd>
+<dt>klink (str):</dt>
+<dd>Key in <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata[<code class="docutils literal"><span class="pre">k</span></code>] to use as the link if image search</dd>
+<dt>kdescription (str):</dt>
+<dd>Key in <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata[<code class="docutils literal"><span class="pre">k</span></code>] to use as the description</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cse.results.save_links">
+<code class="descname">save_links</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cse.html#results.save_links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cse.results.save_links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves a text file of the search result links.</p>
+<p>Saves a text file of the search result links, where each link 
+is saved in a new line. An example is provided below:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">google</span><span class="o">.</span><span class="n">ca</span>
+<span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">gmail</span><span class="o">.</span><span class="n">com</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>file_path (str):</dt>
+<dd>Path to the text file to save links to.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cse.results.save_metadata">
+<code class="descname">save_metadata</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cse.html#results.save_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cse.results.save_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Saves a json file of the search result metadata.</p>
+<p>Saves a json file of the search result metadata from <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>file_path (str):</dt>
+<dd>Path to the json file to save metadata to.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="cli">
+<h3>cli<a class="headerlink" href="#cli" title="Permalink to this headline">¶</a></h3>
+<dl class="function">
+<dt id="cli.main">
+<code class="descclassname">cli.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cli.html#main"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cli.main" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs the search_google command line tool.</p>
+<p>This function runs the search_google command line tool 
+in a terminal. It was intended for use inside a py file 
+(.py) to be executed using python.</p>
+<dl class="docutils">
+<dt>Notes:</dt>
+<dd><ul class="first simple">
+<li><code class="docutils literal"><span class="pre">[q]</span></code> reflects key <code class="docutils literal"><span class="pre">q</span></code> in the <code class="docutils literal"><span class="pre">cseargs</span></code> parameter for <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a></li>
+<li>Optional arguments with <code class="docutils literal"><span class="pre">build_</span></code> are keys in the <code class="docutils literal"><span class="pre">buildargs</span></code> parameter for <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a></li>
+</ul>
+<p>For distribution, this function must be defined in the following files:</p>
+<div class="last highlight-default"><div class="highlight"><pre><span></span><span class="c1"># In &#39;search_google/search_google/__main__.py&#39;</span>
+<span class="kn">from</span> <span class="nn">.cli</span> <span class="k">import</span> <span class="n">main</span>
+<span class="n">main</span><span class="p">()</span>
+
+<span class="c1"># In &#39;search_google/search_google.py&#39;</span>
+<span class="kn">from</span> <span class="nn">search_google.cli</span> <span class="k">import</span> <span class="n">main</span>
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+  <span class="n">main</span><span class="p">()</span>
+
+<span class="c1"># In &#39;search_google/setup.py&#39;</span>
+<span class="n">setup</span><span class="p">(</span>
+  <span class="o">...</span>
+  <span class="n">entry_points</span><span class="o">=</span><span class="p">{</span>
+    <span class="s1">&#39;console_scripts&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s1">&#39;search_google=search_google.cli:main&#39;</span><span class="p">]</span>
+  <span class="p">}</span>
+  <span class="o">...</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="cli.config">
+<em class="property">class </em><code class="descclassname">cli.</code><code class="descname">config</code><span class="sig-paren">(</span><em>file_path</em>, <em>defaults={'build_serviceName': 'customsearch'</em>, <em>'build_version': 'v1'</em>, <em>'num': 3</em>, <em>'option_silent': 'False'</em>, <em>'option_preview': 10}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cli.html#config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cli.config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Configuration file manipulation for default arguments.</p>
+<p>Manipulates a configuration file in JSON format to specify default arguments for
+the  command line. Each key in the json represents an argument and
+each value represents the default setting. The unmodified default arguments are shown below:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s1">&#39;build_serviceName&#39;</span><span class="p">:</span> <span class="s1">&#39;customsearch&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;build_version&#39;</span><span class="p">:</span> <span class="s1">&#39;v1&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;num&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+  <span class="s1">&#39;save_links&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="s1">&#39;save_metadata&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="s1">&#39;option_silent&#39;</span><span class="p">:</span> <span class="s1">&#39;False&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;option_preview&#39;</span><span class="p">:</span> <span class="mi">10</span>
+<span class="p">}</span> 
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Notes:</dt>
+<dd>Creates a configuration file with the defaults if the <code class="docutils literal"><span class="pre">file_path</span></code> does not exist.</dd>
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>file_path (str):</dt>
+<dd>Path to the configuration file in JSON format.</dd>
+<dt>defaults (dict):</dt>
+<dd>Dictionary of default arguments in key-value format.</dd>
+</dl>
+</dd>
+<dt>Attributes:</dt>
+<dd><dl class="first last docutils">
+<dt>file_path (str):</dt>
+<dd>Path to the configuration file in JSON format.</dd>
+</dl>
+</dd>
+<dt>Examples: </dt>
+<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Import the cse module for the results class</span>
+<span class="kn">from</span> <span class="nn">search_google</span> <span class="k">import</span> <span class="n">cli</span>
+
+<span class="c1"># Specify a file path for creating config object</span>
+<span class="n">config</span> <span class="o">=</span> <span class="n">cli</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s1">&#39;path_to_config.json&#39;</span><span class="p">)</span>
+
+<span class="c1"># Update the config file with a new default named &quot;fileType&quot;</span>
+<span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;fileType&#39;</span><span class="p">:</span> <span class="s1">&#39;jpg&#39;</span><span class="p">})</span>
+
+<span class="c1"># Add defaults if not already set</span>
+<span class="c1"># Here the default &quot;num&quot; arg will remain 5</span>
+<span class="c1"># While all defaults in &quot;config&quot; are added to &quot;other_config&quot;</span>
+<span class="n">other_config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;num&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
+<span class="n">other_config</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">other_config</span><span class="p">)</span>
+
+<span class="c1"># Write new default arguments using key-value dict</span>
+<span class="n">config</span><span class="o">.</span><span class="n">overwrite</span><span class="p">({</span>
+  <span class="s1">&#39;build_serviceName&#39;</span><span class="p">:</span> <span class="s1">&#39;customsearch&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;build_version&#39;</span><span class="p">:</span> <span class="s1">&#39;v1&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;num&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+  <span class="s1">&#39;save_links&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="s1">&#39;save_metadata&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+  <span class="s1">&#39;option_silent&#39;</span><span class="p">:</span> <span class="s1">&#39;False&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;option_preview&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+  
+<span class="c1"># Obtain a dict of the default arguments</span>
+<span class="n">arguments</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+<span class="c1"># Remove the default argument named &quot;fileType&quot;</span>
+<span class="n">config</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;fileType&#39;</span><span class="p">)</span>
+
+<span class="c1"># Reset to defaults</span>
+<span class="n">config</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<dl class="method">
+<dt id="cli.config.add">
+<code class="descname">add</code><span class="sig-paren">(</span><em>other_config</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cli.html#config.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cli.config.add" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add default arguments to another configuration dictionary.</p>
+<p>Adds the default arguments from <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.file_path 
+to another configuration dictionary if it is not already set.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>other_config (dict):</dt>
+<dd>The other configuration dictionary of key-value arguments.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cli.config.overwrite">
+<code class="descname">overwrite</code><span class="sig-paren">(</span><em>new_config</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cli.html#config.overwrite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cli.config.overwrite" title="Permalink to this definition">¶</a></dt>
+<dd><p>Overwrite default arguments for configuration file.</p>
+<p>Overwrites the contents of <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.file_path with <code class="docutils literal"><span class="pre">new_config</span></code>.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>new_config (dict):</dt>
+<dd>The new default arguments as a key-value dictionary.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cli.config.read">
+<code class="descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cli.html#config.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cli.config.read" title="Permalink to this definition">¶</a></dt>
+<dd><p>Read default arguments from configuration file.</p>
+<p>Reads the configuration file content into a key-value dictionary.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>A dict of the default arguments from <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.file_path.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cli.config.remove">
+<code class="descname">remove</code><span class="sig-paren">(</span><em>k</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cli.html#config.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cli.config.remove" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove default arguments from configuration file.</p>
+<p>Removes a default argument from <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.file_path.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>k (str):</dt>
+<dd>The default argument name to remove from <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.file_path.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cli.config.reset">
+<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cli.html#config.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cli.config.reset" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset default arguments for configuration file.</p>
+<p>Resets the contents of <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.file_path with <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.defaults.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cli.config.update">
+<code class="descname">update</code><span class="sig-paren">(</span><em>arguments</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cli.html#config.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cli.config.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update default arguments for configuration file.</p>
+<p>Updates the contents of <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.file_path with <code class="docutils literal"><span class="pre">arguments</span></code>.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>arguments (dict):</dt>
+<dd>Key-value dictionary of default arguments with their respective settings to update.</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">search_google</a><ul>
+<li><a class="reference internal" href="#install">Install</a></li>
+<li><a class="reference internal" href="#setup">Setup</a><ul>
+<li><a class="reference internal" href="#google-custom-search-engine">Google Custom Search Engine</a></li>
+<li><a class="reference internal" href="#google-api">Google API</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#modules">Modules</a><ul>
+<li><a class="reference internal" href="#module-cse">cse</a></li>
+<li><a class="reference internal" href="#cli">cli</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">search_google 0.0.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Richard Wen.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.4.
+    </div>
+  </body>
+</html>
