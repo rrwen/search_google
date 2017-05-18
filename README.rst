@@ -4,8 +4,9 @@ search_google
 | Richard Wen
 | rrwen.dev@gmail.com
   
+  
 A command line tool for Google web and image search.
-
+  
 Install
 -------
 
@@ -15,6 +16,18 @@ Install
 ::
   
   pip install search_google
+  
+Usage
+-----
+
+For usage details, refer to the `documentation <https://rrwen.github.io/search_google>`_.
+
+::
+  
+  search_google -h
+  search_google cat
+  search_google cat --searchType=image
+  search_google cat --save_links=cat.txt
 
 Developer Notes
 ---------------
