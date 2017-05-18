@@ -21,7 +21,8 @@ setup(
     'cse',
     'command', 
     'line',
-    'interface'],
+    'interface',
+    'tool'],
   entry_points={
       'console_scripts': ['search_google=search_google.cli:main']
   },
