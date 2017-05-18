@@ -68,6 +68,7 @@ Uploading to PyPi
 5. Upload to `PyPi <https://pypi.python.org/pypi>`_
 
 ::
+  
   python setup.py sdist
   python setup.py bdist_wheel
   python setup.py bdist_wheel --universal
