@@ -79,7 +79,7 @@ This section provides examples of use cases. For help in the console, use::
   
   seach_google -h
   
-Please ensure you have completed the `Setup`_. section::
+Please ensure you have completed the `Setup`_ section::
   
   search_google -s cx="your_cse_id"
   search_google -s build_developerKey="your_dev_key"
