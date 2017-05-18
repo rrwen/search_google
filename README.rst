@@ -58,6 +58,21 @@ Documentation Maintenance
   pip install . -I
   sphinx-build -b html docs/source docs
   
+Uploading to PyPi
+*****************
+
+1. Ensure `twine <https://pypi.python.org/pypi/twine>`_ is installed ``pip install twine``
+2. Ensure `wheel <https://pypi.python.org/pypi/wheel>`_ is installed ``pip install wheel``
+3. Create source distribution
+4. Create wheels
+5. Upload to `PyPi <https://pypi.python.org/pypi>`_
+
+::
+  python setup.py sdist
+  python setup.py bdist_wheel
+  python setup.py bdist_wheel --universal
+  twine upload dist/*
+  
 Implementation
 **************
 
