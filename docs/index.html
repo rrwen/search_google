@@ -111,6 +111,115 @@
 </div>
 </div>
 </div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>This section provides examples of use cases. For help in the console, use:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">seach_google</span> <span class="o">-</span><span class="n">h</span>
+</pre></div>
+</div>
+<p>Please ensure you have completed the <a class="reference internal" href="#setup">Setup</a>. section:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">s</span> <span class="n">cx</span><span class="o">=</span><span class="s2">&quot;your_cse_id&quot;</span>
+<span class="n">search_google</span> <span class="o">-</span><span class="n">s</span> <span class="n">build_developerKey</span><span class="o">=</span><span class="s2">&quot;your_dev_key&quot;</span>
+</pre></div>
+</div>
+<div class="section" id="web-and-image-search">
+<h3>Web and Image Search<a class="headerlink" href="#web-and-image-search" title="Permalink to this headline">¶</a></h3>
+<p>Perform a web search:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="n">cat</span>
+<span class="n">search_google</span> <span class="s2">&quot;cat with hat&quot;</span>
+</pre></div>
+</div>
+<p>Perform an image search:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">searchType</span><span class="o">=</span><span class="n">image</span>
+<span class="n">search_google</span> <span class="s2">&quot;cat with hat&quot;</span> <span class="o">--</span><span class="n">searchType</span><span class="o">=</span><span class="n">image</span>
+</pre></div>
+</div>
+<p>Search for a <code class="docutils literal"><span class="pre">20</span></code> results:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">n</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">searchType</span><span class="o">=</span><span class="n">image</span> <span class="o">--</span><span class="n">n</span><span class="o">=</span><span class="mi">20</span>
+</pre></div>
+</div>
+<p>Preview all 20 results:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">n</span><span class="o">=</span><span class="mi">20</span> <span class="o">--</span><span class="n">option_preview</span><span class="o">=</span><span class="mi">20</span>
+<span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">searchType</span><span class="o">=</span><span class="n">image</span> <span class="o">--</span><span class="n">n</span><span class="o">=</span><span class="mi">20</span> <span class="o">--</span><span class="n">option_preview</span><span class="o">=</span><span class="mi">20</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="saving-links-and-metadata">
+<h3>Saving Links and Metadata<a class="headerlink" href="#saving-links-and-metadata" title="Permalink to this headline">¶</a></h3>
+<p>Save metadata:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">save_metadata</span><span class="o">=</span><span class="n">cat</span><span class="o">.</span><span class="n">json</span>
+<span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">searchType</span><span class="o">=</span><span class="n">image</span> <span class="o">--</span><span class="n">save_metadata</span><span class="o">=</span><span class="n">cat_images</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+<p>Save URL links:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">save_links</span><span class="o">=</span><span class="n">cat</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">searchType</span><span class="o">=</span><span class="n">image</span> <span class="o">--</span><span class="n">save_links</span><span class="o">=</span><span class="n">cat_images</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Save links and metadata:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">save_links</span><span class="o">=</span><span class="n">cat</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">save_metadata</span><span class="o">=</span><span class="n">cat</span><span class="o">.</span><span class="n">json</span>
+<span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">searchType</span><span class="o">=</span><span class="n">image</span> <span class="o">--</span><span class="n">save_links</span><span class="o">=</span><span class="n">cat_images</span><span class="o">.</span><span class="n">txt</span> <span class="o">--</span><span class="n">save_metadata</span><span class="o">=</span><span class="n">cat_images</span><span class="o">.</span><span class="n">json</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="setting-defaults">
+<h3>Setting defaults<a class="headerlink" href="#setting-defaults" title="Permalink to this headline">¶</a></h3>
+<p>Defaults persist even after you have closed the console. They make it easy to customize the search_google command to user needs without a long list of arguments every call.</p>
+<p>View the defaults:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">v</span>
+</pre></div>
+</div>
+<p>Increase number of search results previewed to <code class="docutils literal"><span class="pre">20</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">s</span> <span class="n">option_preview</span><span class="o">=</span><span class="mi">20</span>
+</pre></div>
+</div>
+<p>Turn off preview of search results:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">s</span> <span class="n">option_silent</span><span class="o">=</span><span class="kc">True</span>
+</pre></div>
+</div>
+<p>Set the <code class="docutils literal"><span class="pre">searchType</span></code> argument to default to <code class="docutils literal"><span class="pre">image</span></code> search:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">s</span> <span class="n">searchType</span><span class="o">=</span><span class="n">image</span>
+</pre></div>
+</div>
+<p>Set the <code class="docutils literal"><span class="pre">fileType</span></code> argument to default to <code class="docutils literal"><span class="pre">jpg</span></code> images:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">s</span> <span class="n">fileType</span><span class="o">=</span><span class="n">jpg</span>
+</pre></div>
+</div>
+<p>Set to save a text file named <code class="docutils literal"><span class="pre">links.txt</span></code> with search result links whenever used:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">s</span> <span class="n">save_links</span><span class="o">=</span><span class="n">links</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>Remove default arguments:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_result</span> <span class="o">-</span><span class="n">r</span> <span class="n">option_preview</span>
+<span class="n">search_google</span> <span class="o">-</span><span class="n">r</span> <span class="n">option_silent</span>
+<span class="n">search_google</span> <span class="o">-</span><span class="n">r</span> <span class="n">searchType</span>
+<span class="n">search_google</span> <span class="o">-</span><span class="n">r</span> <span class="n">fileType</span>
+<span class="n">search_google</span> <span class="o">-</span><span class="n">r</span> <span class="n">save_links</span>
+</pre></div>
+</div>
+<p>Reset the defaults:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">d</span>
+</pre></div>
+</div>
+<p>After reseting defaults, you will have to set your developer and CSE ID keys again:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">s</span> <span class="n">cx</span><span class="o">=</span><span class="s2">&quot;your_cse_id&quot;</span>
+<span class="n">search_google</span> <span class="o">-</span><span class="n">s</span> <span class="n">build_developerKey</span><span class="o">=</span><span class="s2">&quot;your_dev_key&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="additional-arguments">
+<h3>Additional arguments<a class="headerlink" href="#additional-arguments" title="Permalink to this headline">¶</a></h3>
+<p>There are a large number of optional arguments defined using <code class="docutils literal"><span class="pre">--</span></code> that are not shown when using <code class="docutils literal"><span class="pre">search_google</span> <span class="pre">-h</span></code>. These can be used with the same names as the arguments passed to <a class="reference external" href="https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html">Google&#8217;s CSE method</a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">a</span>
+</pre></div>
+</div>
+<p>For example, we can specify the index of the first result to return by setting <code class="docutils literal"><span class="pre">start</span></code> which is a named argument in <a class="reference external" href="https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html">Google&#8217;s CSE method</a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">start</span><span class="o">=</span><span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
 <div class="section" id="modules">
 <h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="module-cse">
@@ -474,6 +583,13 @@ to another configuration dictionary if it is not already set.</p>
 <li><a class="reference internal" href="#setup">Setup</a><ul>
 <li><a class="reference internal" href="#google-custom-search-engine">Google Custom Search Engine</a></li>
 <li><a class="reference internal" href="#google-api">Google API</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usage">Usage</a><ul>
+<li><a class="reference internal" href="#web-and-image-search">Web and Image Search</a></li>
+<li><a class="reference internal" href="#saving-links-and-metadata">Saving Links and Metadata</a></li>
+<li><a class="reference internal" href="#setting-defaults">Setting defaults</a></li>
+<li><a class="reference internal" href="#additional-arguments">Additional arguments</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#modules">Modules</a><ul>

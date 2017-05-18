@@ -48,6 +48,8 @@
     Save links and metadata
       > search_google cat --save-links=cat.txt
       > search_google cat --save-metadata=cat.json
+  
+  For more information visit use: search_google -i
 """
 
 __author__ = 'Richard Wen'

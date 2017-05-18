@@ -3,7 +3,7 @@ search_google
 
 | Richard Wen
 | rrwen.dev@gmail.com
-
+  
 A command line tool for Google web and image search.
 
 Install
@@ -19,6 +19,15 @@ Install
 Developer Notes
 ---------------
 
-Generate the documentation in ``docs/``::
+Documentation Maintenance
+*************************
 
-  sphinx -b docs/source docs
+1. Ensure `Python <https://www.python.org/downloads/>`_ is installed
+2. Ensure `sphinx <https://github.com/sphinx-doc/sphinx/>`_ is installed ``pip install -U sphinx``
+2. Generate the documentation in ``docs/``
+
+::
+  
+  pip install . -I
+  sphinx-build -b html docs/source docs
+  

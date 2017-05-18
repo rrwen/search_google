@@ -72,6 +72,116 @@ An `API developer key <https://developers.google.com/api-client-library/python/a
   
   search_google -s build_developerKey="your_dev_key"
 
+Usage
+-----
+
+This section provides examples of use cases. For help in the console, use::
+  
+  seach_google -h
+  
+Please ensure you have completed the `Setup`_. section::
+  
+  search_google -s cx="your_cse_id"
+  search_google -s build_developerKey="your_dev_key"
+
+Web and Image Search
+********************
+
+Perform a web search::
+  
+  search_google cat
+  search_google "cat with hat"
+
+Perform an image search::
+
+  search_google cat --searchType=image
+  search_google "cat with hat" --searchType=image
+
+Search for a ``20`` results::
+
+  search_google cat --n=20
+  search_google cat --searchType=image --n=20
+  
+Preview all 20 results::
+
+  search_google cat --n=20 --option_preview=20
+  search_google cat --searchType=image --n=20 --option_preview=20
+  
+Saving Links and Metadata
+*************************
+
+Save metadata::
+  
+  search_google cat --save_metadata=cat.json
+  search_google cat --searchType=image --save_metadata=cat_images.json
+
+Save URL links::
+  
+  search_google cat --save_links=cat.txt
+  search_google cat --searchType=image --save_links=cat_images.txt
+
+Save links and metadata::
+  
+  search_google cat --save_links=cat.txt --save_metadata=cat.json
+  search_google cat --searchType=image --save_links=cat_images.txt --save_metadata=cat_images.json
+
+Setting defaults
+****************
+
+Defaults persist even after you have closed the console. They make it easy to customize the search_google command to user needs without a long list of arguments every call.  
+  
+View the defaults::
+  
+  search_google -v
+
+Increase number of search results previewed to ``20``::
+
+  search_google -s option_preview=20
+  
+Turn off preview of search results::
+
+  search_google -s option_silent=True
+  
+Set the ``searchType`` argument to default to ``image`` search::
+
+  search_google -s searchType=image
+  
+Set the ``fileType`` argument to default to ``jpg`` images::
+  
+  search_google -s fileType=jpg
+
+Set to save a text file named ``links.txt`` with search result links whenever used::
+  
+  search_google -s save_links=links.txt
+
+Remove default arguments::
+
+  search_result -r option_preview
+  search_google -r option_silent
+  search_google -r searchType
+  search_google -r fileType
+  search_google -r save_links
+  
+Reset the defaults::
+  
+  search_google -d
+
+After reseting defaults, you will have to set your developer and CSE ID keys again::
+
+  search_google -s cx="your_cse_id"
+  search_google -s build_developerKey="your_dev_key"
+
+Additional arguments
+********************
+
+There are a large number of optional arguments defined using ``--`` that are not shown when using ``search_google -h``. These can be used with the same names as the arguments passed to `Google's CSE method <https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html>`_::
+
+  search_google -a
+
+For example, we can specify the index of the first result to return by setting ``start`` which is a named argument in `Google's CSE method <https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html>`_::
+  
+  search_google cat --start=2
+  
 Modules
 -------
 
