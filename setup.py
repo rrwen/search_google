@@ -4,11 +4,12 @@ from setuptools import setup
 
 setup(
   name='search_google',
-  version='0.0.0',
+  version='0.0.1',
   description='A command line tool for Google web and image search.',
   author='Richard Wen',
   author_email='rrwen.dev@gmail.com',
   license='MIT',
+  url='https://github.com/rrwen/search_google',
   keywords = [
     'google',
     'api',
