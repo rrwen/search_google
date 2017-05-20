@@ -46,7 +46,9 @@ Search for "cat" images::
   search_google "cat" --searchType=image --save_links=cat_images.txt
   search_google "cat" --searchType=image --save_downloads=downloads
   
-Use as a Python module::
+Use as a Python module:
+
+.. code-block:: python
 
   # Import the cse module for the results class
   from search_google import cse
@@ -143,7 +145,9 @@ In order to use ``build`` and ``cse``, a `Google Developer API Key <https://deve
                     |
              search_google.cli   <-- command line
 
-A rough example is provided below thanks to the `customsearch example <https://github.com/google/google-api-python-client/blob/master/samples/customsearch/main.py>`_ from Google::
+A rough example is provided below thanks to the `customsearch example <https://github.com/google/google-api-python-client/blob/master/samples/customsearch/main.py>`_ from Google:
+
+.. code-block:: python
   
   from apiclient.discovery import build
   
