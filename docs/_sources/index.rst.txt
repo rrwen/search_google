@@ -7,7 +7,7 @@ search_google
 | Richard Wen
 | rrwen.dev@gmail.com
 
-A command line tool for Google web and image search.
+A command line tool and module for Google API web and image search.
 
 Tested for Python 2.6 and 3.5 using `Anaconda 4.3.1 <https://www.continuum.io/downloads>`_.
 
@@ -21,7 +21,7 @@ Install
 -------
 
 1. Install `Python <https://www.python.org/downloads/>`_
-2. Install search_google via ``pip``
+2. Install `search_google <https://pypi.python.org/pypi/search-google>`_ via ``pip``
 
 ::
   
@@ -30,11 +30,11 @@ Install
 Setup
 -----
 
-A `CSE ID <https://support.google.com/customsearch/answer/2649143?hl=en>`_ and a `Google API developer key <https://developers.google.com/api-client-library/python/auth/api-keys>`_ are required to use this package. A `Gmail <https://www.google.com/gmail>`_ account will also be required to create and access the ID and developer key.
+* A `CSE ID <https://support.google.com/customsearch/answer/2649143?hl=en>`_ and a `Google API developer key <https://developers.google.com/api-client-library/python/auth/api-keys>`_ are required to use this package
+* A `Gmail <https://www.google.com/gmail>`_ account will also be required to create and access the ID and developer key
+* When asked to sign in, use your Gmail account for access
 
-When prompted, use your Gmail account for login access.
-
-*Note: Instructions and links were written on May 17, 2017, and are subject to change depending on Google's website.*
+*Note: Instructions and links were written on May 20, 2017, and are subject to change depending on Google's website and API.*
 
 Google Custom Search Engine
 ***************************
@@ -75,11 +75,11 @@ An `API developer key <https://developers.google.com/api-client-library/python/a
 Usage
 -----
 
-This section provides examples of use cases. For help in the console, use::
+For help in the console, use::
   
-  seach_google -h
+  search_google -h
   
-Please ensure you have completed the `Setup`_ section::
+Please that the `Setup`_ section was completed::
   
   search_google -s cx="your_cse_id"
   search_google -s build_developerKey="your_dev_key"
@@ -97,7 +97,7 @@ Perform an image search::
   search_google cat --searchType=image
   search_google "cat with hat" --searchType=image
 
-Search for a ``20`` results::
+Search for ``20`` results::
 
   search_google cat --n=20
   search_google cat --searchType=image --n=20
@@ -107,8 +107,8 @@ Preview all 20 results::
   search_google cat --n=20 --option_preview=20
   search_google cat --searchType=image --n=20 --option_preview=20
   
-Saving Links and Metadata
-*************************
+Links and Metadata
+******************
 
 Save metadata::
   
@@ -125,10 +125,10 @@ Save links and metadata::
   search_google cat --save_links=cat.txt --save_metadata=cat.json
   search_google cat --searchType=image --save_links=cat_images.txt --save_metadata=cat_images.json
 
-Setting defaults
-****************
+Defaults Arguments
+******************
 
-Defaults persist even after you have closed the console. They make it easy to customize the search_google command to user needs without a long list of arguments every call.  
+Default arguments persist even after the console is closed. Defaults enable user customization of the search_google command without a long list of arguments every call.  
   
 View the defaults::
   
@@ -166,21 +166,30 @@ Reset the defaults::
   
   search_google -d
 
-After reseting defaults, you will have to set your developer and CSE ID keys again::
+After resetting defaults, the developer and CSE ID keys will have to be set again::
 
   search_google -s cx="your_cse_id"
   search_google -s build_developerKey="your_dev_key"
 
-Additional arguments
+Additional Arguments
 ********************
 
-There are a large number of optional arguments defined using ``--`` that are not shown when using ``search_google -h``. These can be used with the same names as the arguments passed to `Google's CSE method <https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html>`_::
+A number of optional arguments defined using ``--`` are not shown when using ``search_google -h``. These can be used with the same names as the arguments passed to `Google's CSE method <https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html>`_::
 
   search_google -a
 
-For example, we can specify the index of the first result to return by setting ``start`` which is a named argument in `Google's CSE method <https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html>`_::
+For example, the index of the first result to return can be set by argument ``start`` which is a named argument in `Google's CSE method <https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html>`_::
   
   search_google cat --start=2
+  
+Module Import
+*************
+
+The `search_google <https://pypi.python.org/pypi/search-google>`_ package may also be used as a `Python module <https://docs.python.org/2/tutorial/modules.html>`_::
+  
+  from search_google import cse
+
+For more details on module usage, see the example in `cse`_.
   
 Modules
 -------

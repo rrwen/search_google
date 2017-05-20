@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-__author__ = 'Richard Wen'
-__email__ = 'rrwen.dev@gmail.com'
-
 from apiclient.discovery import build
 from os.path import basename
 
@@ -66,6 +63,9 @@ class results:
       
       # Save the search result links to a text file
       results.save_links('links.txt')
+      
+      # Download the search results to a directory
+      results.download_links('downloads')
   """
   def __init__(
     self,
@@ -79,15 +79,24 @@ class results:
     self.buildargs = buildargs
     self.cseargs = cseargs
     self.metadata = build(**buildargs).cse().list(**cseargs).execute()
+  
+  def download_links(self, p):
+    """Get a list of values from the key value metadata attribute.
+    
+    Args:
+      p (str):
+        Path of directory to save downloads of :class:`cse.results`.links
+    """
+    links = self.links
     
   def get_values(self, k, v):
     """Get a list of values from the key value metadata attribute.
     
     Args:
       k (str):
-        the key in :class:`cse.results`.metadata
+        Key in :class:`cse.results`.metadata
       v (str):
-        the values from each item in the key of :class:`cse.results`.metadata
+        Values from each item in the key of :class:`cse.results`.metadata
     
     Returns:
       A list containing all the ``v`` values in the ``k`` key for the  :class:`cse.results`.metadata attribute.

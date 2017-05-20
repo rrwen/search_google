@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>search_google &#8212; search_google 1.0.2 documentation</title>
+    <title>search_google &#8212; search_google 1.0.3 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.0.2',
+        VERSION:     '1.0.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -37,7 +37,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">search_google 1.0.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">search_google 1.0.3 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -54,7 +54,7 @@
 <div class="line">Richard Wen</div>
 <div class="line"><a class="reference external" href="mailto:rrwen&#46;dev&#37;&#52;&#48;gmail&#46;com">rrwen<span>&#46;</span>dev<span>&#64;</span>gmail<span>&#46;</span>com</a></div>
 </div>
-<p>A command line tool for Google web and image search.</p>
+<p>A command line tool and module for Google API web and image search.</p>
 <p>Tested for Python 2.6 and 3.5 using <a class="reference external" href="https://www.continuum.io/downloads">Anaconda 4.3.1</a>.</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">h</span>
 <span class="n">search_google</span> <span class="n">cats</span>
@@ -65,7 +65,7 @@
 <h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Install <a class="reference external" href="https://www.python.org/downloads/">Python</a></li>
-<li>Install search_google via <code class="docutils literal"><span class="pre">pip</span></code></li>
+<li>Install <a class="reference external" href="https://pypi.python.org/pypi/search-google">search_google</a> via <code class="docutils literal"><span class="pre">pip</span></code></li>
 </ol>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">search_google</span>
 </pre></div>
@@ -73,9 +73,12 @@
 </div>
 <div class="section" id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
-<p>A <a class="reference external" href="https://support.google.com/customsearch/answer/2649143?hl=en">CSE ID</a> and a <a class="reference external" href="https://developers.google.com/api-client-library/python/auth/api-keys">Google API developer key</a> are required to use this package. A <a class="reference external" href="https://www.google.com/gmail">Gmail</a> account will also be required to create and access the ID and developer key.</p>
-<p>When prompted, use your Gmail account for login access.</p>
-<p><em>Note: Instructions and links were written on May 17, 2017, and are subject to change depending on Google&#8217;s website.</em></p>
+<ul class="simple">
+<li>A <a class="reference external" href="https://support.google.com/customsearch/answer/2649143?hl=en">CSE ID</a> and a <a class="reference external" href="https://developers.google.com/api-client-library/python/auth/api-keys">Google API developer key</a> are required to use this package</li>
+<li>A <a class="reference external" href="https://www.google.com/gmail">Gmail</a> account will also be required to create and access the ID and developer key</li>
+<li>When asked to sign in, use your Gmail account for access</li>
+</ul>
+<p><em>Note: Instructions and links were written on May 20, 2017, and are subject to change depending on Google&#8217;s website and API.</em></p>
 <div class="section" id="google-custom-search-engine">
 <h3>Google Custom Search Engine<a class="headerlink" href="#google-custom-search-engine" title="Permalink to this headline">¶</a></h3>
 <p>A <a class="reference external" href="https://developers.google.com/api-client-library/python/apis/customsearch/v1">Google Custom Search Engine (CSE)</a> and a <a class="reference external" href="https://support.google.com/customsearch/answer/2649143?hl=en">CSE ID</a> can be setup with the following instructions:</p>
@@ -113,11 +116,11 @@
 </div>
 <div class="section" id="usage">
 <h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
-<p>This section provides examples of use cases. For help in the console, use:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">seach_google</span> <span class="o">-</span><span class="n">h</span>
+<p>For help in the console, use:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">h</span>
 </pre></div>
 </div>
-<p>Please ensure you have completed the <a class="reference internal" href="#setup">Setup</a> section:</p>
+<p>Please that the <a class="reference internal" href="#setup">Setup</a> section was completed:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">s</span> <span class="n">cx</span><span class="o">=</span><span class="s2">&quot;your_cse_id&quot;</span>
 <span class="n">search_google</span> <span class="o">-</span><span class="n">s</span> <span class="n">build_developerKey</span><span class="o">=</span><span class="s2">&quot;your_dev_key&quot;</span>
 </pre></div>
@@ -134,7 +137,7 @@
 <span class="n">search_google</span> <span class="s2">&quot;cat with hat&quot;</span> <span class="o">--</span><span class="n">searchType</span><span class="o">=</span><span class="n">image</span>
 </pre></div>
 </div>
-<p>Search for a <code class="docutils literal"><span class="pre">20</span></code> results:</p>
+<p>Search for <code class="docutils literal"><span class="pre">20</span></code> results:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">n</span><span class="o">=</span><span class="mi">20</span>
 <span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">searchType</span><span class="o">=</span><span class="n">image</span> <span class="o">--</span><span class="n">n</span><span class="o">=</span><span class="mi">20</span>
 </pre></div>
@@ -145,8 +148,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="saving-links-and-metadata">
-<h3>Saving Links and Metadata<a class="headerlink" href="#saving-links-and-metadata" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="links-and-metadata">
+<h3>Links and Metadata<a class="headerlink" href="#links-and-metadata" title="Permalink to this headline">¶</a></h3>
 <p>Save metadata:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">save_metadata</span><span class="o">=</span><span class="n">cat</span><span class="o">.</span><span class="n">json</span>
 <span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">searchType</span><span class="o">=</span><span class="n">image</span> <span class="o">--</span><span class="n">save_metadata</span><span class="o">=</span><span class="n">cat_images</span><span class="o">.</span><span class="n">json</span>
@@ -163,9 +166,9 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="setting-defaults">
-<h3>Setting defaults<a class="headerlink" href="#setting-defaults" title="Permalink to this headline">¶</a></h3>
-<p>Defaults persist even after you have closed the console. They make it easy to customize the search_google command to user needs without a long list of arguments every call.</p>
+<div class="section" id="defaults-arguments">
+<h3>Defaults Arguments<a class="headerlink" href="#defaults-arguments" title="Permalink to this headline">¶</a></h3>
+<p>Default arguments persist even after the console is closed. Defaults enable user customization of the search_google command without a long list of arguments every call.</p>
 <p>View the defaults:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">v</span>
 </pre></div>
@@ -202,22 +205,30 @@
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">d</span>
 </pre></div>
 </div>
-<p>After reseting defaults, you will have to set your developer and CSE ID keys again:</p>
+<p>After resetting defaults, the developer and CSE ID keys will have to be set again:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">s</span> <span class="n">cx</span><span class="o">=</span><span class="s2">&quot;your_cse_id&quot;</span>
 <span class="n">search_google</span> <span class="o">-</span><span class="n">s</span> <span class="n">build_developerKey</span><span class="o">=</span><span class="s2">&quot;your_dev_key&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="additional-arguments">
-<h3>Additional arguments<a class="headerlink" href="#additional-arguments" title="Permalink to this headline">¶</a></h3>
-<p>There are a large number of optional arguments defined using <code class="docutils literal"><span class="pre">--</span></code> that are not shown when using <code class="docutils literal"><span class="pre">search_google</span> <span class="pre">-h</span></code>. These can be used with the same names as the arguments passed to <a class="reference external" href="https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html">Google&#8217;s CSE method</a>:</p>
+<h3>Additional Arguments<a class="headerlink" href="#additional-arguments" title="Permalink to this headline">¶</a></h3>
+<p>A number of optional arguments defined using <code class="docutils literal"><span class="pre">--</span></code> are not shown when using <code class="docutils literal"><span class="pre">search_google</span> <span class="pre">-h</span></code>. These can be used with the same names as the arguments passed to <a class="reference external" href="https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html">Google&#8217;s CSE method</a>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">a</span>
 </pre></div>
 </div>
-<p>For example, we can specify the index of the first result to return by setting <code class="docutils literal"><span class="pre">start</span></code> which is a named argument in <a class="reference external" href="https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html">Google&#8217;s CSE method</a>:</p>
+<p>For example, the index of the first result to return can be set by argument <code class="docutils literal"><span class="pre">start</span></code> which is a named argument in <a class="reference external" href="https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html">Google&#8217;s CSE method</a>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">start</span><span class="o">=</span><span class="mi">2</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="module-import">
+<h3>Module Import<a class="headerlink" href="#module-import" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference external" href="https://pypi.python.org/pypi/search-google">search_google</a> package may also be used as a <a class="reference external" href="https://docs.python.org/2/tutorial/modules.html">Python module</a>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">search_google</span> <span class="k">import</span> <span class="n">cse</span>
+</pre></div>
+</div>
+<p>For more details on module usage, see the example in <a class="reference internal" href="#cse">cse</a>.</p>
 </div>
 </div>
 <div class="section" id="modules">
@@ -285,10 +296,27 @@ to search webpages and images using queries.</p>
 
 <span class="c1"># Save the search result links to a text file</span>
 <span class="n">results</span><span class="o">.</span><span class="n">save_links</span><span class="p">(</span><span class="s1">&#39;links.txt&#39;</span><span class="p">)</span>
+
+<span class="c1"># Download the search results to a directory</span>
+<span class="n">results</span><span class="o">.</span><span class="n">download_links</span><span class="p">(</span><span class="s1">&#39;downloads&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd>
 </dl>
+<dl class="method">
+<dt id="cse.results.download_links">
+<code class="descname">download_links</code><span class="sig-paren">(</span><em>p</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cse.html#results.download_links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cse.results.download_links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a list of values from the key value metadata attribute.</p>
+<dl class="docutils">
+<dt>Args:</dt>
+<dd><dl class="first last docutils">
+<dt>p (str):</dt>
+<dd>Path of directory to save downloads of <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.links</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="method">
 <dt id="cse.results.get_values">
 <code class="descname">get_values</code><span class="sig-paren">(</span><em>k</em>, <em>v</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cse.html#results.get_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cse.results.get_values" title="Permalink to this definition">¶</a></dt>
@@ -297,9 +325,9 @@ to search webpages and images using queries.</p>
 <dt>Args:</dt>
 <dd><dl class="first last docutils">
 <dt>k (str):</dt>
-<dd>the key in <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata</dd>
+<dd>Key in <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata</dd>
 <dt>v (str):</dt>
-<dd>the values from each item in the key of <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata</dd>
+<dd>Values from each item in the key of <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata</dd>
 </dl>
 </dd>
 <dt>Returns:</dt>
@@ -395,7 +423,7 @@ in a terminal. It was intended for use inside a py file
 
 <span class="c1"># In &#39;search_google/search_google.py&#39;</span>
 <span class="kn">from</span> <span class="nn">search_google.cli</span> <span class="k">import</span> <span class="n">main</span>
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
   <span class="n">main</span><span class="p">()</span>
 
 <span class="c1"># In &#39;search_google/setup.py&#39;</span>
@@ -587,9 +615,10 @@ to another configuration dictionary if it is not already set.</p>
 </li>
 <li><a class="reference internal" href="#usage">Usage</a><ul>
 <li><a class="reference internal" href="#web-and-image-search">Web and Image Search</a></li>
-<li><a class="reference internal" href="#saving-links-and-metadata">Saving Links and Metadata</a></li>
-<li><a class="reference internal" href="#setting-defaults">Setting defaults</a></li>
-<li><a class="reference internal" href="#additional-arguments">Additional arguments</a></li>
+<li><a class="reference internal" href="#links-and-metadata">Links and Metadata</a></li>
+<li><a class="reference internal" href="#defaults-arguments">Defaults Arguments</a></li>
+<li><a class="reference internal" href="#additional-arguments">Additional Arguments</a></li>
+<li><a class="reference internal" href="#module-import">Module Import</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#modules">Modules</a><ul>
@@ -631,12 +660,12 @@ to another configuration dictionary if it is not already set.</p>
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">search_google 1.0.2 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">search_google 1.0.3 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2017, Richard Wen.
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.4.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.5.1.
     </div>
   </body>
 </html>

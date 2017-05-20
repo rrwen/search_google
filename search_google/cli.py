@@ -52,9 +52,6 @@
   For more information visit use: search_google -i
 """
 
-__author__ = 'Richard Wen'
-__email__ = 'rrwen.dev@gmail.com'
-
 from os.path import isfile
 from pkg_resources import resource_filename, Requirement
 from pprint import pprint
