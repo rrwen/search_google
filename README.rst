@@ -135,10 +135,10 @@ In order to use ``build`` and ``cse``, a `Google Developer API Key <https://deve
 
 ::
   
-  googleapiclient.build   cse.list
+  googleapiclient.build   cse.list  <--- Google API CSE
           |                   |
           ---------------------
                     |
-             search_google.cse
+             search_google.cse      <--- search results
                     |
-             search_google.cli
+             search_google.cli      <--- command line
