@@ -135,10 +135,24 @@ In order to use ``build`` and ``cse``, a `Google Developer API Key <https://deve
 
 ::
   
-  googleapiclient.build   cse.list  <--- Google API CSE
-          |                   |
-          ---------------------
+          googleapiclient.build  <-- Google API
+                    |                    
+                 cse.list        <-- Google CSE
                     |
-             search_google.cse      <--- search results
+             search_google.cse   <-- search results
                     |
-             search_google.cli      <--- command line
+             search_google.cli   <-- command line
+
+A rough example is provided below thanks to the `customsearch example <https://github.com/google/google-api-python-client/blob/master/samples/customsearch/main.py>`_ from Google::
+  
+  from apiclient.discovery import build
+  
+  # Set developer key and CSE ID
+  dev_key = 'a_developer_key'
+  cse_id = 'a_cse_id'
+  
+  # Obtain search results from Google CSE
+  service = build("customsearch", "v1", developerKey=dev_key)
+  results = service.cse().list(q='cat', cx=cse_id).execute()
+  
+  # Manipulate search results after ...
