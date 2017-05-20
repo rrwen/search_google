@@ -1,5 +1,25 @@
 # -*- coding: utf-8 -*-
 
+__name__ = 'search_google'
 __author__ = 'Richard Wen'
 __email__ = 'rrwen.dev@gmail.com'
 __version__ = '1.0.3'
+__license__ = 'MIT'
+__description__ = 'A command line tool and module for Google API web and image search.'
+__keywords__ = [
+  'google',
+  'api',
+  'custom',
+  'web',
+  'image',
+  'search',
+  'engine',
+  'cli',
+  'cse',
+  'command', 
+  'line',
+  'interface',
+  'tool',
+  'module']
+__url__ = 'https://github.com/rrwen/search_google'
+__download_url__ = 'https://github.com/rrwen/search_google/archive/master.zip'

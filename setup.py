@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 
 from setuptools import setup
-from search_google import __version__
+
+import search_google
 
 def readme():
   with open('README.rst') as f:
@@ -10,30 +11,16 @@ def readme():
     return f.read()[1:]
         
 setup(
-  name='search_google',
-  version=__version__,
-  description='A command line tool and module for Google API web and image search.',
+  name=search_google.__name__,
+  version=search_google.__version__,
+  description=search_google.__description__,
   long_description=readme(),
-  author='Richard Wen',
-  author_email='rrwen.dev@gmail.com',
-  license='MIT',
-  url='https://github.com/rrwen/search_google',
-  download_url='https://github.com/rrwen/search_google/archive/master.zip',
-  keywords = [
-    'google',
-    'api',
-    'custom',
-    'web',
-    'image',
-    'search',
-    'engine',
-    'cli',
-    'cse',
-    'command', 
-    'line',
-    'interface',
-    'tool',
-    'module'],
+  author=search_google.__author__,
+  author_email=search_google.__email__,
+  license=search_google.__license__,
+  url=search_google.__url__,
+  download_url=search_google.__download_url__,
+  keywords =search_google. __keywords__,
   entry_points={
       'console_scripts': ['search_google=search_google.cli:main']
   },
