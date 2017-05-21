@@ -75,15 +75,13 @@
 <span class="sd">    --fileType        format for image search (default: png)</span>
 <span class="sd">    --save_links      path for text file of links</span>
 <span class="sd">    --save_metadata   path for metadata JSON file</span>
+<span class="sd">    --save_downloads  path for directory of link downloads</span>
 <span class="sd">    --option_silent   &#39;True&#39; to disable preview</span>
 <span class="sd">    --option_preview  num of results to preview</span>
 <span class="sd">    </span>
 <span class="sd">    For more arguments use: search_google -a</span>
 <span class="sd">    </span>
 <span class="sd">  Examples:</span>
-<span class="sd">    </span>
-<span class="sd">    Reset default optional arguments</span>
-<span class="sd">      &gt; search_google -d</span>
 <span class="sd">    </span>
 <span class="sd">    Set developer and search engine key arguments</span>
 <span class="sd">      &gt; search_google -s developerKey=&quot;dev_key&quot;</span>
@@ -95,9 +93,8 @@
 <span class="sd">    Search for &quot;cat&quot; images</span>
 <span class="sd">      &gt; search_google cat --searchType=image</span>
 <span class="sd">    </span>
-<span class="sd">    Save links and metadata</span>
-<span class="sd">      &gt; search_google cat --save-links=cat.txt</span>
-<span class="sd">      &gt; search_google cat --save-metadata=cat.json</span>
+<span class="sd">    Download links to directory</span>
+<span class="sd">      &gt; search_google cat --save-downloads=downloads</span>
 <span class="sd">  </span>
 <span class="sd">  For more information visit use: search_google -i</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -373,7 +370,11 @@
   <span class="k">if</span> <span class="s1">&#39;links&#39;</span> <span class="ow">in</span> <span class="n">saveargs</span><span class="p">:</span>
     <span class="n">results</span><span class="o">.</span><span class="n">save_links</span><span class="p">(</span><span class="n">saveargs</span><span class="p">[</span><span class="s1">&#39;links&#39;</span><span class="p">])</span>
   <span class="k">if</span> <span class="s1">&#39;metadata&#39;</span> <span class="ow">in</span> <span class="n">saveargs</span><span class="p">:</span>
-    <span class="n">results</span><span class="o">.</span><span class="n">save_metadata</span><span class="p">(</span><span class="n">saveargs</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">])</span></div>
+    <span class="n">results</span><span class="o">.</span><span class="n">save_metadata</span><span class="p">(</span><span class="n">saveargs</span><span class="p">[</span><span class="s1">&#39;metadata&#39;</span><span class="p">])</span>
+  
+  <span class="c1"># (cse_download) Download links</span>
+  <span class="k">if</span> <span class="s1">&#39;downloads&#39;</span> <span class="ow">in</span> <span class="n">saveargs</span><span class="p">:</span>
+    <span class="n">results</span><span class="o">.</span><span class="n">download_links</span><span class="p">(</span><span class="n">saveargs</span><span class="p">[</span><span class="s1">&#39;downloads&#39;</span><span class="p">])</span></div>
     
 </pre></div>
 

@@ -21,15 +21,8 @@ setup(
   url=search_google.__url__,
   download_url=search_google.__download_url__,
   keywords =search_google. __keywords__,
-  entry_points={
-      'console_scripts': ['search_google=search_google.cli:main']
-  },
-  packages=['search_google'],
-  package_data={
-    'search_google': ['config.json']
-  },
-  install_requires=[
-    'argparse',
-    'google-api-python-client'
-  ]
+  entry_points=search_google.__entry_points__,
+  packages=search_google.__packages__,
+  package_data=search_google.__package_data__,
+  install_requires=search_google.__install_requires__
 )

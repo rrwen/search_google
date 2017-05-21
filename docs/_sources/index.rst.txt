@@ -125,8 +125,8 @@ Save links and metadata::
   search_google cat --save_links=cat.txt --save_metadata=cat.json
   search_google cat --searchType=image --save_links=cat_images.txt --save_metadata=cat_images.json
 
-Defaults Arguments
-******************
+Default Arguments
+*****************
 
 Default arguments persist even after the console is closed. Defaults enable user customization of the search_google command without a long list of arguments every call.  
   
@@ -181,6 +181,9 @@ A number of optional arguments defined using ``--`` are not shown when using ``s
 For example, the index of the first result to return can be set by argument ``start`` which is a named argument in `Google's CSE method <https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html>`_::
   
   search_google cat --start=2
+  search_google cat --lr=lang_en
+  search_google cat --searchType=image --imgType=photo
+  search_google cat --searchType=image --imgDominantColor=brown
   
 Module Import
 *************
@@ -188,6 +191,23 @@ Module Import
 The `search_google <https://pypi.python.org/pypi/search-google>`_ package may also be used as a `Python module <https://docs.python.org/2/tutorial/modules.html>`_::
   
   from search_google import cse
+  
+  # Define buildargs for cse api
+  buildargs = {
+    "serviceName": "customsearch",
+    "version": "v1",
+    "developerKey": "your_api_key"
+  }
+  
+  # Define cseargs for search
+  cseargs = {
+    "q": "keyword query",
+    "cx": "your_cse_id",
+    "num": 3
+  }
+  
+  # Create a results object
+  results = cse.results(buildargs, cseargs)
 
 For more details on module usage, see the example in `cse`_.
   

@@ -25,15 +25,13 @@
     --fileType        format for image search (default: png)
     --save_links      path for text file of links
     --save_metadata   path for metadata JSON file
+    --save_downloads  path for directory of link downloads
     --option_silent   'True' to disable preview
     --option_preview  num of results to preview
     
     For more arguments use: search_google -a
     
   Examples:
-    
-    Reset default optional arguments
-      > search_google -d
     
     Set developer and search engine key arguments
       > search_google -s developerKey="dev_key"
@@ -45,9 +43,8 @@
     Search for "cat" images
       > search_google cat --searchType=image
     
-    Save links and metadata
-      > search_google cat --save-links=cat.txt
-      > search_google cat --save-metadata=cat.json
+    Download links to directory
+      > search_google cat --save-downloads=downloads
   
   For more information visit use: search_google -i
 """
@@ -324,4 +321,8 @@ def main():
     results.save_links(saveargs['links'])
   if 'metadata' in saveargs:
     results.save_metadata(saveargs['metadata'])
+  
+  # (cse_download) Download links
+  if 'downloads' in saveargs:
+    results.download_links(saveargs['downloads'])
     

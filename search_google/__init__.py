@@ -23,3 +23,11 @@ __keywords__ = [
   'module']
 __url__ = 'https://github.com/rrwen/search_google'
 __download_url__ = 'https://github.com/rrwen/search_google/archive/master.zip'
+__install_requires__ = [
+  'argparse',
+  'google-api-python-client',
+  'requests'
+]
+__packages__ = ['search_google']
+__package_data__ = {'search_google': ['config.json']}
+__entry_points__ = {'console_scripts': ['search_google=search_google.cli:main']}

@@ -166,8 +166,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="defaults-arguments">
-<h3>Defaults Arguments<a class="headerlink" href="#defaults-arguments" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="default-arguments">
+<h3>Default Arguments<a class="headerlink" href="#default-arguments" title="Permalink to this headline">¶</a></h3>
 <p>Default arguments persist even after the console is closed. Defaults enable user customization of the search_google command without a long list of arguments every call.</p>
 <p>View the defaults:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="o">-</span><span class="n">v</span>
@@ -219,6 +219,9 @@
 </div>
 <p>For example, the index of the first result to return can be set by argument <code class="docutils literal"><span class="pre">start</span></code> which is a named argument in <a class="reference external" href="https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html">Google&#8217;s CSE method</a>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">start</span><span class="o">=</span><span class="mi">2</span>
+<span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">lr</span><span class="o">=</span><span class="n">lang_en</span>
+<span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">searchType</span><span class="o">=</span><span class="n">image</span> <span class="o">--</span><span class="n">imgType</span><span class="o">=</span><span class="n">photo</span>
+<span class="n">search_google</span> <span class="n">cat</span> <span class="o">--</span><span class="n">searchType</span><span class="o">=</span><span class="n">image</span> <span class="o">--</span><span class="n">imgDominantColor</span><span class="o">=</span><span class="n">brown</span>
 </pre></div>
 </div>
 </div>
@@ -226,6 +229,23 @@
 <h3>Module Import<a class="headerlink" href="#module-import" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://pypi.python.org/pypi/search-google">search_google</a> package may also be used as a <a class="reference external" href="https://docs.python.org/2/tutorial/modules.html">Python module</a>:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">search_google</span> <span class="k">import</span> <span class="n">cse</span>
+
+<span class="c1"># Define buildargs for cse api</span>
+<span class="n">buildargs</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;serviceName&quot;</span><span class="p">:</span> <span class="s2">&quot;customsearch&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;developerKey&quot;</span><span class="p">:</span> <span class="s2">&quot;your_api_key&quot;</span>
+<span class="p">}</span>
+
+<span class="c1"># Define cseargs for search</span>
+<span class="n">cseargs</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword query&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;cx&quot;</span><span class="p">:</span> <span class="s2">&quot;your_cse_id&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;num&quot;</span><span class="p">:</span> <span class="mi">3</span>
+<span class="p">}</span>
+
+<span class="c1"># Create a results object</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">cse</span><span class="o">.</span><span class="n">results</span><span class="p">(</span><span class="n">buildargs</span><span class="p">,</span> <span class="n">cseargs</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>For more details on module usage, see the example in <a class="reference internal" href="#cse">cse</a>.</p>
@@ -305,12 +325,12 @@ to search webpages and images using queries.</p>
 </dl>
 <dl class="method">
 <dt id="cse.results.download_links">
-<code class="descname">download_links</code><span class="sig-paren">(</span><em>p</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cse.html#results.download_links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cse.results.download_links" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get a list of values from the key value metadata attribute.</p>
+<code class="descname">download_links</code><span class="sig-paren">(</span><em>dir_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cse.html#results.download_links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cse.results.download_links" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download web pages or images from search result links.</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><dl class="first last docutils">
-<dt>p (str):</dt>
+<dt>dir_path (str):</dt>
 <dd>Path of directory to save downloads of <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.links</dd>
 </dl>
 </dd>
@@ -616,7 +636,7 @@ to another configuration dictionary if it is not already set.</p>
 <li><a class="reference internal" href="#usage">Usage</a><ul>
 <li><a class="reference internal" href="#web-and-image-search">Web and Image Search</a></li>
 <li><a class="reference internal" href="#links-and-metadata">Links and Metadata</a></li>
-<li><a class="reference internal" href="#defaults-arguments">Defaults Arguments</a></li>
+<li><a class="reference internal" href="#default-arguments">Default Arguments</a></li>
 <li><a class="reference internal" href="#additional-arguments">Additional Arguments</a></li>
 <li><a class="reference internal" href="#module-import">Module Import</a></li>
 </ul>

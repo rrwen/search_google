@@ -1,9 +1,12 @@
 # -*- coding: utf-8 -*-
 
 from apiclient.discovery import build
-from os.path import basename
+from os import makedirs, path
+from urllib.request import urlopen
 
 import json
+import shutil
+import requests
 
 class results:
   """Google Custom Search Engine (CSE) API results.
@@ -80,14 +83,26 @@ class results:
     self.cseargs = cseargs
     self.metadata = build(**buildargs).cse().list(**cseargs).execute()
   
-  def download_links(self, p):
-    """Get a list of values from the key value metadata attribute.
+  def download_links(self, dir_path):
+    """Download web pages or images from search result links.
     
     Args:
-      p (str):
+      dir_path (str):
         Path of directory to save downloads of :class:`cse.results`.links
     """
     links = self.links
+    if not path.exists(dir_path):
+      makedirs(dir_path)
+    for i, url in enumerate(links):
+      ext = path.splitext(url)[1]
+      ext = '.html' if ext == '' else ext
+      file_name = self.cseargs['q'].replace(' ', '_') + '_' + str(i) + ext
+      file_path = path.join(dir_path, file_name)
+      r = requests.get(url, stream=True)
+      if r.status_code == 200:
+        with open(file_path, 'wb') as f:
+          r.raw.decode_content = True
+          shutil.copyfileobj(r.raw, f)
     
   def get_values(self, k, v):
     """Get a list of values from the key value metadata attribute.
@@ -141,7 +156,7 @@ class results:
       
       # (print_image) Print result image file
       if searchType == 'image':
-        link = '\n' + basename(kv[klink])
+        link = '\n' + path.basename(kv[klink])
         print(link)
         
       # (print_description) Print result snippet
