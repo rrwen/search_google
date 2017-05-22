@@ -34,7 +34,7 @@
   Examples:
     
     Set developer and search engine key arguments
-      > search_google -s developerKey="dev_key"
+      > search_google -s build_developerKey="dev_key"
       > search_google -s cx="cse_key"
     
     Web search for keyword "cat"
