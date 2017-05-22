@@ -107,6 +107,19 @@ Documentation Maintenance
   
   pip install . -I
   sphinx-build -b html docs/source docs
+
+Upload to github
+****************
+
+1. Ensure `git <https://git-scm.com/>`_ is installed
+2. Add all files and commit changes
+3. Push to github
+
+::
+  
+  git add .
+  git commit -a -m "Generic update"
+  git push
   
 Upload to PyPi
 **************
