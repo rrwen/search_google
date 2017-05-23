@@ -58,163 +58,10 @@ from webbrowser import open_new_tab
  
 import argparse
 import json
+import kwconfig
 
 _doc_link = 'https://github.com/rrwen/search_google'
 _cse_link = 'https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html'
-
-class config:
-  """Configuration file manipulation for default arguments.
-  
-  Manipulates a configuration file in JSON format to specify default arguments for
-  the  command line. Each key in the json represents an argument and
-  each value represents the default setting. The unmodified default arguments are shown below::
-    
-    {
-      'build_serviceName': 'customsearch',
-      'build_version': 'v1',
-      'num': 3,
-      'save_links': None,
-      'save_metadata': None,
-      'option_silent': 'False',
-      'option_preview': 10
-    } 
-  
-  Notes:
-    Creates a configuration file with the defaults if the ``file_path`` does not exist.
-    
-  Args:
-    file_path (str):
-      Path to the configuration file in JSON format.
-    defaults (dict):
-      Dictionary of default arguments in key-value format.
-  
-  Attributes:
-    file_path (str):
-      Path to the configuration file in JSON format.
-  
-  Examples: 
-    ::
-    
-      # Import the cse module for the results class
-      from search_google import cli
-      
-      # Specify a file path for creating config object
-      config = cli.config('path_to_config.json')
-      
-      # Update the config file with a new default named "fileType"
-      config.update({'fileType': 'jpg'})
-      
-      # Add defaults if not already set
-      # Here the default "num" arg will remain 5
-      # While all defaults in "config" are added to "other_config"
-      other_config = {'num': 5}
-      other_config = config.add(other_config)
-      
-      # Write new default arguments using key-value dict
-      config.overwrite({
-        'build_serviceName': 'customsearch',
-        'build_version': 'v1',
-        'num': 5,
-        'save_links': None,
-        'save_metadata': None,
-        'option_silent': 'False',
-        'option_preview': 2})
-        
-      # Obtain a dict of the default arguments
-      arguments = config.read()
-      
-      # Remove the default argument named "fileType"
-      config.remove('fileType')
-      
-      # Reset to defaults
-      config.reset()
-  """
-  def __init__(
-    self,
-    file_path, 
-    defaults={
-      'build_serviceName': 'customsearch',
-      'build_version': 'v1',
-      'num': 3,
-      'option_silent': 'False',
-      'option_preview': 10}):
-    self.file_path = file_path
-    self.defaults = defaults
-    if not isfile(file_path):
-      self.reset()
-      
-  def add(self, other_config):
-    """Add default arguments to another configuration dictionary.
-    
-    Adds the default arguments from :class:`cli.config`.file_path 
-    to another configuration dictionary if it is not already set.
-    
-    Args:
-      other_config (dict):
-        The other configuration dictionary of key-value arguments.
-    """
-    for k, v in self.read().items():
-      if k not in other_config:
-        other_config[k] = v
-    return other_config
-  
-  def overwrite(self, new_config):
-    """Overwrite default arguments for configuration file.
-    
-    Overwrites the contents of :class:`cli.config`.file_path with ``new_config``.
-    
-    Args:
-      new_config (dict):
-        The new default arguments as a key-value dictionary.
-    """
-    with open(self.file_path, 'w') as out_file:
-      json.dump(new_config, out_file)
-      
-  def read(self):
-    """Read default arguments from configuration file.
-    
-    Reads the configuration file content into a key-value dictionary.
-    
-    Returns:
-      A dict of the default arguments from :class:`cli.config`.file_path.
-    """
-    with open(self.file_path, 'r') as in_file:    
-      config = json.load(in_file)
-    return config
-  
-  def remove(self, k):
-    """Remove default arguments from configuration file.
-    
-    Removes a default argument from :class:`cli.config`.file_path.
-    
-    Args:
-      k (str):
-        The default argument name to remove from :class:`cli.config`.file_path.
-    """
-    config = self.read()
-    config.pop(k, None)
-    self.overwrite(config)
-    
-  def reset(self):
-    """Reset default arguments for configuration file.
-    
-    Resets the contents of :class:`cli.config`.file_path with :class:`cli.config`.defaults.
-    """
-    with open(self.file_path, 'w') as out_file:
-      json.dump(self.defaults, out_file)
-    
-  def update(self, arguments):
-    """Update default arguments for configuration file.
-    
-    Updates the contents of :class:`cli.config`.file_path with ``arguments``.
-    
-    Args:
-      arguments (dict):
-        Key-value dictionary of default arguments with their respective settings to update.
-    """
-    config = self.read()
-    config.update(arguments)
-    self.overwrite(config)
     
 def main():
   """Runs the search_google command line tool.
@@ -247,7 +94,7 @@ def main():
         ...
       )
   """
-  config_file = config(resource_filename(Requirement.parse('search_google'),  'search_google/config.json'))
+  config_file = kwconfig.manage(resource_filename(Requirement.parse('search_google'),  'search_google/config.json'))
   
   # (commands) Main command calls
   if len(argv) > 1:

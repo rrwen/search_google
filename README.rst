@@ -55,16 +55,16 @@ Use as a Python module:
   
   # Define buildargs for cse api
   buildargs = {
-    "serviceName": "customsearch",
-    "version": "v1",
-    "developerKey": "your_api_key"
+    'serviceName': 'customsearch',
+    'version': 'v1',
+    'developerKey': 'your_api_key'
   }
   
   # Define cseargs for search
   cseargs = {
-    "q": "keyword query",
-    "cx": "your_cse_id",
-    "num": 3
+    'q': 'keyword query',
+    'cx': 'your_cse_id',
+    'num': 3
   }
   
   # Create a results object
@@ -77,6 +77,11 @@ For more usage details, see the `Documentation <https://rrwen.github.io/search_g
 
 Developer Notes
 ---------------
+
+TO DO
+*****
+
+* Add unit tests for ``search_google.cli``
 
 Developer Install
 *****************
@@ -96,6 +101,17 @@ Install from ``git`` cloned source:
   git clone https://github.com/rrwen/search_google
   cd search_google
   pip install . -I
+  
+Tests
+*****
+
+1. Ensure `unittest <https://docs.python.org/2.7/library/unittest.html>`_ is available
+2. Run tests
+
+::
+  
+  pip install . -I
+  python -m unittest
 
 Documentation Maintenance
 *************************
@@ -126,15 +142,17 @@ Upload to PyPi
 
 1. Ensure `twine <https://pypi.python.org/pypi/twine>`_ is installed ``pip install twine``
 2. Ensure `sphinx <https://github.com/sphinx-doc/sphinx/>`_ is installed ``pip install -U sphinx``
-3. Delete ``dist`` directory
-4. Update the version ``search_google/__init__.py``
-5. Update the documentation in ``docs/``
-6. Create source distribution
-7. Upload to `PyPi <https://pypi.python.org/pypi>`_
+3. Run tests and check for OK status
+4. Delete ``dist`` directory
+5. Update the version ``search_google/__init__.py``
+6. Update the documentation in ``docs/``
+7. Create source distribution
+8. Upload to `PyPi <https://pypi.python.org/pypi>`_
 
 ::
   
   pip install . -I
+  python -m unittest
   sphinx-build -b html docs/source docs
   python setup.py sdist
   twine upload dist/*

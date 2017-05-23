@@ -194,16 +194,16 @@ The `search_google <https://pypi.python.org/pypi/search-google>`_ package may al
   
   # Define buildargs for cse api
   buildargs = {
-    "serviceName": "customsearch",
-    "version": "v1",
-    "developerKey": "your_api_key"
+    'serviceName': 'customsearch',
+    'version': 'v1',
+    'developerKey': 'your_api_key'
   }
   
   # Define cseargs for search
   cseargs = {
-    "q": "keyword query",
-    "cx": "your_cse_id",
-    "num": 3
+    'q': 'keyword query',
+    'cx': 'your_cse_id',
+    'num': 3
   }
   
   # Create a results object
@@ -224,7 +224,4 @@ cli
 ***
 
 .. autofunction:: cli.main
-
-.. autoclass:: cli.config
-   :members:
    

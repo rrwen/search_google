@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>search_google &#8212; search_google 1.0.4 documentation</title>
+    <title>search_google &#8212; search_google 1.0.5 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.0.4',
+        VERSION:     '1.0.5',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -37,7 +37,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">search_google 1.0.4 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">search_google 1.0.5 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -232,16 +232,16 @@
 
 <span class="c1"># Define buildargs for cse api</span>
 <span class="n">buildargs</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;serviceName&quot;</span><span class="p">:</span> <span class="s2">&quot;customsearch&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;developerKey&quot;</span><span class="p">:</span> <span class="s2">&quot;your_api_key&quot;</span>
+  <span class="s1">&#39;serviceName&#39;</span><span class="p">:</span> <span class="s1">&#39;customsearch&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;v1&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;developerKey&#39;</span><span class="p">:</span> <span class="s1">&#39;your_api_key&#39;</span>
 <span class="p">}</span>
 
 <span class="c1"># Define cseargs for search</span>
 <span class="n">cseargs</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword query&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;cx&quot;</span><span class="p">:</span> <span class="s2">&quot;your_cse_id&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;num&quot;</span><span class="p">:</span> <span class="mi">3</span>
+  <span class="s1">&#39;q&#39;</span><span class="p">:</span> <span class="s1">&#39;keyword query&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;cx&#39;</span><span class="p">:</span> <span class="s1">&#39;your_cse_id&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;num&#39;</span><span class="p">:</span> <span class="mi">3</span>
 <span class="p">}</span>
 
 <span class="c1"># Create a results object</span>
@@ -460,160 +460,6 @@ in a terminal. It was intended for use inside a py file
 </dl>
 </dd></dl>
 
-<dl class="class">
-<dt id="cli.config">
-<em class="property">class </em><code class="descclassname">cli.</code><code class="descname">config</code><span class="sig-paren">(</span><em>file_path</em>, <em>defaults={'build_serviceName': 'customsearch'</em>, <em>'build_version': 'v1'</em>, <em>'num': 3</em>, <em>'option_silent': 'False'</em>, <em>'option_preview': 10}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cli.html#config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cli.config" title="Permalink to this definition">¶</a></dt>
-<dd><p>Configuration file manipulation for default arguments.</p>
-<p>Manipulates a configuration file in JSON format to specify default arguments for
-the  command line. Each key in the json represents an argument and
-each value represents the default setting. The unmodified default arguments are shown below:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">{</span>
-  <span class="s1">&#39;build_serviceName&#39;</span><span class="p">:</span> <span class="s1">&#39;customsearch&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;build_version&#39;</span><span class="p">:</span> <span class="s1">&#39;v1&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;num&#39;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
-  <span class="s1">&#39;save_links&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="s1">&#39;save_metadata&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="s1">&#39;option_silent&#39;</span><span class="p">:</span> <span class="s1">&#39;False&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;option_preview&#39;</span><span class="p">:</span> <span class="mi">10</span>
-<span class="p">}</span> 
-</pre></div>
-</div>
-<dl class="docutils">
-<dt>Notes:</dt>
-<dd>Creates a configuration file with the defaults if the <code class="docutils literal"><span class="pre">file_path</span></code> does not exist.</dd>
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>file_path (str):</dt>
-<dd>Path to the configuration file in JSON format.</dd>
-<dt>defaults (dict):</dt>
-<dd>Dictionary of default arguments in key-value format.</dd>
-</dl>
-</dd>
-<dt>Attributes:</dt>
-<dd><dl class="first last docutils">
-<dt>file_path (str):</dt>
-<dd>Path to the configuration file in JSON format.</dd>
-</dl>
-</dd>
-<dt>Examples: </dt>
-<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Import the cse module for the results class</span>
-<span class="kn">from</span> <span class="nn">search_google</span> <span class="k">import</span> <span class="n">cli</span>
-
-<span class="c1"># Specify a file path for creating config object</span>
-<span class="n">config</span> <span class="o">=</span> <span class="n">cli</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="s1">&#39;path_to_config.json&#39;</span><span class="p">)</span>
-
-<span class="c1"># Update the config file with a new default named &quot;fileType&quot;</span>
-<span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;fileType&#39;</span><span class="p">:</span> <span class="s1">&#39;jpg&#39;</span><span class="p">})</span>
-
-<span class="c1"># Add defaults if not already set</span>
-<span class="c1"># Here the default &quot;num&quot; arg will remain 5</span>
-<span class="c1"># While all defaults in &quot;config&quot; are added to &quot;other_config&quot;</span>
-<span class="n">other_config</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;num&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">}</span>
-<span class="n">other_config</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">other_config</span><span class="p">)</span>
-
-<span class="c1"># Write new default arguments using key-value dict</span>
-<span class="n">config</span><span class="o">.</span><span class="n">overwrite</span><span class="p">({</span>
-  <span class="s1">&#39;build_serviceName&#39;</span><span class="p">:</span> <span class="s1">&#39;customsearch&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;build_version&#39;</span><span class="p">:</span> <span class="s1">&#39;v1&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;num&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-  <span class="s1">&#39;save_links&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="s1">&#39;save_metadata&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-  <span class="s1">&#39;option_silent&#39;</span><span class="p">:</span> <span class="s1">&#39;False&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;option_preview&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
-  
-<span class="c1"># Obtain a dict of the default arguments</span>
-<span class="n">arguments</span> <span class="o">=</span> <span class="n">config</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-
-<span class="c1"># Remove the default argument named &quot;fileType&quot;</span>
-<span class="n">config</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;fileType&#39;</span><span class="p">)</span>
-
-<span class="c1"># Reset to defaults</span>
-<span class="n">config</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-</pre></div>
-</div>
-</dd>
-</dl>
-<dl class="method">
-<dt id="cli.config.add">
-<code class="descname">add</code><span class="sig-paren">(</span><em>other_config</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cli.html#config.add"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cli.config.add" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add default arguments to another configuration dictionary.</p>
-<p>Adds the default arguments from <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.file_path 
-to another configuration dictionary if it is not already set.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>other_config (dict):</dt>
-<dd>The other configuration dictionary of key-value arguments.</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cli.config.overwrite">
-<code class="descname">overwrite</code><span class="sig-paren">(</span><em>new_config</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cli.html#config.overwrite"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cli.config.overwrite" title="Permalink to this definition">¶</a></dt>
-<dd><p>Overwrite default arguments for configuration file.</p>
-<p>Overwrites the contents of <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.file_path with <code class="docutils literal"><span class="pre">new_config</span></code>.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>new_config (dict):</dt>
-<dd>The new default arguments as a key-value dictionary.</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cli.config.read">
-<code class="descname">read</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cli.html#config.read"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cli.config.read" title="Permalink to this definition">¶</a></dt>
-<dd><p>Read default arguments from configuration file.</p>
-<p>Reads the configuration file content into a key-value dictionary.</p>
-<dl class="docutils">
-<dt>Returns:</dt>
-<dd>A dict of the default arguments from <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.file_path.</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cli.config.remove">
-<code class="descname">remove</code><span class="sig-paren">(</span><em>k</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cli.html#config.remove"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cli.config.remove" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove default arguments from configuration file.</p>
-<p>Removes a default argument from <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.file_path.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>k (str):</dt>
-<dd>The default argument name to remove from <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.file_path.</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cli.config.reset">
-<code class="descname">reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/cli.html#config.reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cli.config.reset" title="Permalink to this definition">¶</a></dt>
-<dd><p>Reset default arguments for configuration file.</p>
-<p>Resets the contents of <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.file_path with <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.defaults.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="cli.config.update">
-<code class="descname">update</code><span class="sig-paren">(</span><em>arguments</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cli.html#config.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cli.config.update" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update default arguments for configuration file.</p>
-<p>Updates the contents of <a class="reference internal" href="#cli.config" title="cli.config"><code class="xref py py-class docutils literal"><span class="pre">cli.config</span></code></a>.file_path with <code class="docutils literal"><span class="pre">arguments</span></code>.</p>
-<dl class="docutils">
-<dt>Args:</dt>
-<dd><dl class="first last docutils">
-<dt>arguments (dict):</dt>
-<dd>Key-value dictionary of default arguments with their respective settings to update.</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </div>
 </div>
 </div>
@@ -680,7 +526,7 @@ to another configuration dictionary if it is not already set.</p>
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">search_google 1.0.4 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">search_google 1.0.5 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
