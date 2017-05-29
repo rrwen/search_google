@@ -44,7 +44,7 @@
       > search_google cat --searchType=image
     
     Download links to directory
-      > search_google cat --save-downloads=downloads
+      > search_google cat --save_downloads=downloads
   
   For more information visit use: search_google -i
 """
@@ -55,8 +55,7 @@ from pprint import pprint
 from search_google import cse
 from sys import argv
 from webbrowser import open_new_tab
- 
-import argparse
+
 import json
 import kwconfig
 
@@ -107,40 +106,17 @@ def main():
     elif argv[1] == '-a': # browse arguments
       open_new_tab(_cse_link)
       exit()
-    elif argv[1] == '-s': # set defaults
-      k, v = argv[2].split("=", maxsplit=1)
-      config_file.update({k: v})
-      print('\nSet "' + k + '" default to ' + '"' + v + '"')
-      exit()
-    elif argv[1] == '-r': # remove defaults
-      config_file.remove(argv[2])
-      print('\n Removed "' + argv[2] + '" default')
-      exit()
-    elif argv[1] == '-v': # show defaults
-      print('\nConfig file at: \n\t' + config_file.file_path + '\n')
-      pprint(config_file.read())
-      exit()
-    elif argv[1] == '-d': # reset defaults
-      config_file.reset()
-      print('\n Reset defaults')
-      exit()
+    else: # execute kwconfig commands
+      config_file.command(argv, i=1, quit=True, silent=False)
   else:
     print(__doc__)
     exit()
   
-  # (argparse) Create argument parser
-  parser = argparse.ArgumentParser(usage=__doc__, add_help=False)
-  parser.add_argument('q')
-
   # (parse_args) Parse command arguments into dict
-  for kv in argv[2:]:
-    k = kv.split('=', maxsplit=1)[0]
-    parser.add_argument(k) # add arg
-  kwargs = vars(parser.parse_args())
-  
-  # (default_args) Default arguments from json
+  kwargs = kwconfig.parse(argv[2:])
+  kwargs['q'] = argv[1]
   kwargs = config_file.add(kwargs)
-      
+  
   # (split_args) Split args into build, cse, and save arguments
   buildargs = {}
   cseargs = {}

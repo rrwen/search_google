@@ -18,7 +18,7 @@ class resultsTest(TestCase):
       'developerKey': 'AIzaSyClH2yMLZlf_cs7yHn7gi16MWMkfCeaLZg'
     }
     cseargs = {
-      'q': 'lectures',
+      'q': 'google',
       'cx': '014766831074566761693:ovdpanxgl6o',
       'num': 1
     }

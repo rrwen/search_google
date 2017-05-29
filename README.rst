@@ -78,11 +78,6 @@ For more usage details, see the `Documentation <https://rrwen.github.io/search_g
 Developer Notes
 ---------------
 
-TO DO
-*****
-
-* Add unit tests for ``search_google.cli``
-
 Developer Install
 *****************
 
