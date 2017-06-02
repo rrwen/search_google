@@ -190,7 +190,7 @@ Module Import
 
 The `search_google <https://pypi.python.org/pypi/search-google>`_ package may also be used as a `Python module <https://docs.python.org/2/tutorial/modules.html>`_::
   
-  from search_google import cse
+  import search_google.api
   
   # Define buildargs for cse api
   buildargs = {
@@ -207,17 +207,17 @@ The `search_google <https://pypi.python.org/pypi/search-google>`_ package may al
   }
   
   # Create a results object
-  results = cse.results(buildargs, cseargs)
+  results = search_google.api.results(buildargs, cseargs)
 
 For more details on module usage, see the example in `cse`_.
   
 Modules
 -------
 
-cse
+api
 ***
 
-.. automodule:: cse
+.. automodule:: api
    :members:
 
 cli

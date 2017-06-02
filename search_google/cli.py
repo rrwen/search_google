@@ -52,12 +52,12 @@
 from os.path import isfile
 from pkg_resources import resource_filename, Requirement
 from pprint import pprint
-from search_google import cse
 from sys import argv
 from webbrowser import open_new_tab
 
 import json
 import kwconfig
+import search_google.api
 
 _doc_link = 'https://github.com/rrwen/search_google'
 _cse_link = 'https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html'
@@ -70,8 +70,8 @@ def main():
   (.py) to be executed using python.
   
   Notes:
-    * ``[q]`` reflects key ``q`` in the ``cseargs`` parameter for :class:`cse.results`
-    * Optional arguments with ``build_`` are keys in the ``buildargs`` parameter for :class:`cse.results`
+    * ``[q]`` reflects key ``q`` in the ``cseargs`` parameter for :class:`api.results`
+    * Optional arguments with ``build_`` are keys in the ``buildargs`` parameter for :class:`api.results`
   
     For distribution, this function must be defined in the following files::
       
@@ -97,20 +97,13 @@ def main():
   
   # (commands) Main command calls
   if len(argv) > 1:
-    if argv[1] == '-h': # show help
-      print(__doc__)
-      exit()
-    elif argv[1] == '-i': # browse docs
+    if argv[1] == '-i': # browse docs
       open_new_tab(_doc_link)
       exit()
     elif argv[1] == '-a': # browse arguments
       open_new_tab(_cse_link)
       exit()
-    else: # execute kwconfig commands
-      config_file.command(argv, i=1, quit=True, silent=False)
-  else:
-    print(__doc__)
-    exit()
+  config_file.command(argv, i=1, doc=__doc__, quit=True, silent=False)
   
   # (parse_args) Parse command arguments into dict
   kwargs = kwconfig.parse(argv[2:])
@@ -132,8 +125,8 @@ def main():
     else:
       cseargs[k] = v
   
-  # (cse_results) Get google cse results
-  results = cse.results(buildargs, cseargs)
+  # (cse_results) Get google api results
+  results = search_google.api.results(buildargs, cseargs)
   
   # (cse_print) Print a preview of results
   if optionargs['silent'].lower() != 'true':

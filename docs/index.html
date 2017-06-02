@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>search_google &#8212; search_google 1.0.6 documentation</title>
+    <title>search_google &#8212; search_google 1.0.7 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.0.6',
+        VERSION:     '1.0.7',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -37,7 +37,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">search_google 1.0.6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">search_google 1.0.7 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -228,7 +228,7 @@
 <div class="section" id="module-import">
 <h3>Module Import<a class="headerlink" href="#module-import" title="Permalink to this headline">¶</a></h3>
 <p>The <a class="reference external" href="https://pypi.python.org/pypi/search-google">search_google</a> package may also be used as a <a class="reference external" href="https://docs.python.org/2/tutorial/modules.html">Python module</a>:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">search_google</span> <span class="k">import</span> <span class="n">cse</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">search_google.api</span>
 
 <span class="c1"># Define buildargs for cse api</span>
 <span class="n">buildargs</span> <span class="o">=</span> <span class="p">{</span>
@@ -245,19 +245,19 @@
 <span class="p">}</span>
 
 <span class="c1"># Create a results object</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">cse</span><span class="o">.</span><span class="n">results</span><span class="p">(</span><span class="n">buildargs</span><span class="p">,</span> <span class="n">cseargs</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">search_google</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">results</span><span class="p">(</span><span class="n">buildargs</span><span class="p">,</span> <span class="n">cseargs</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>For more details on module usage, see the example in <a class="reference internal" href="#cse">cse</a>.</p>
+<p>For more details on module usage, see the example in <a href="#id8"><span class="problematic" id="id9">`cse`_</span></a>.</p>
 </div>
 </div>
 <div class="section" id="modules">
 <h2>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="module-cse">
-<span id="cse"></span><h3>cse<a class="headerlink" href="#module-cse" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="module-api">
+<span id="api"></span><h3>api<a class="headerlink" href="#module-api" title="Permalink to this headline">¶</a></h3>
 <dl class="class">
-<dt id="cse.results">
-<em class="property">class </em><code class="descclassname">cse.</code><code class="descname">results</code><span class="sig-paren">(</span><em>buildargs={'serviceName': 'customsearch'</em>, <em>'version': 'v1'}</em>, <em>cseargs={'num': 3}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cse.html#results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cse.results" title="Permalink to this definition">¶</a></dt>
+<dt id="api.results">
+<em class="property">class </em><code class="descclassname">api.</code><code class="descname">results</code><span class="sig-paren">(</span><em>buildargs={'serviceName': 'customsearch'</em>, <em>'version': 'v1'}</em>, <em>cseargs={'num': 3}</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api.html#results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.results" title="Permalink to this definition">¶</a></dt>
 <dd><p>Google Custom Search Engine (CSE) API results.</p>
 <p>Uses the <a class="reference external" href="https://developers.google.com/api-client-library/python/apis/customsearch/v1">Google Custom Search Engine API</a> 
 to search webpages and images using queries.</p>
@@ -281,25 +281,25 @@ to search webpages and images using queries.</p>
 </dl>
 </dd>
 <dt>Examples: </dt>
-<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Import the cse module for the results class</span>
-<span class="kn">from</span> <span class="nn">search_google</span> <span class="k">import</span> <span class="n">cse</span>
+<dd><div class="first last highlight-default"><div class="highlight"><pre><span></span><span class="c1"># Import the api module for the results class</span>
+<span class="kn">import</span> <span class="nn">search_google.api</span>
 
-<span class="c1"># Define buildargs for cse api</span>
+<span class="c1"># Define buildargs for api api</span>
 <span class="n">buildargs</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;serviceName&quot;</span><span class="p">:</span> <span class="s2">&quot;customsearch&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;developerKey&quot;</span><span class="p">:</span> <span class="s2">&quot;your_api_key&quot;</span>
+        <span class="s2">&quot;serviceName&quot;</span><span class="p">:</span> <span class="s2">&quot;customsearch&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;developerKey&quot;</span><span class="p">:</span> <span class="s2">&quot;your_api_key&quot;</span>
 <span class="p">}</span>
 
 <span class="c1"># Define cseargs for search</span>
 <span class="n">cseargs</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword query&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;cx&quot;</span><span class="p">:</span> <span class="s2">&quot;your_cse_id&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;num&quot;</span><span class="p">:</span> <span class="mi">3</span>
+        <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword query&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cx&quot;</span><span class="p">:</span> <span class="s2">&quot;your_cse_id&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;num&quot;</span><span class="p">:</span> <span class="mi">3</span>
 <span class="p">}</span>
 
 <span class="c1"># Create a results object</span>
-<span class="n">results</span> <span class="o">=</span> <span class="n">cse</span><span class="o">.</span><span class="n">results</span><span class="p">(</span><span class="n">buildargs</span><span class="p">,</span> <span class="n">cseargs</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">search_google</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">results</span><span class="p">(</span><span class="n">buildargs</span><span class="p">,</span> <span class="n">cseargs</span><span class="p">)</span>
 
 <span class="c1"># Preview the search results</span>
 <span class="n">results</span><span class="o">.</span><span class="n">preview</span><span class="p">()</span>
@@ -324,46 +324,46 @@ to search webpages and images using queries.</p>
 </dd>
 </dl>
 <dl class="method">
-<dt id="cse.results.download_links">
-<code class="descname">download_links</code><span class="sig-paren">(</span><em>dir_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cse.html#results.download_links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cse.results.download_links" title="Permalink to this definition">¶</a></dt>
+<dt id="api.results.download_links">
+<code class="descname">download_links</code><span class="sig-paren">(</span><em>dir_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api.html#results.download_links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.results.download_links" title="Permalink to this definition">¶</a></dt>
 <dd><p>Download web pages or images from search result links.</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><dl class="first last docutils">
 <dt>dir_path (str):</dt>
-<dd>Path of directory to save downloads of <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.links</dd>
+<dd>Path of directory to save downloads of <a class="reference internal" href="#api.results" title="api.results"><code class="xref py py-class docutils literal"><span class="pre">api.results</span></code></a>.links</dd>
 </dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="cse.results.get_values">
-<code class="descname">get_values</code><span class="sig-paren">(</span><em>k</em>, <em>v</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cse.html#results.get_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cse.results.get_values" title="Permalink to this definition">¶</a></dt>
+<dt id="api.results.get_values">
+<code class="descname">get_values</code><span class="sig-paren">(</span><em>k</em>, <em>v</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api.html#results.get_values"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.results.get_values" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a list of values from the key value metadata attribute.</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><dl class="first last docutils">
 <dt>k (str):</dt>
-<dd>Key in <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata</dd>
+<dd>Key in <a class="reference internal" href="#api.results" title="api.results"><code class="xref py py-class docutils literal"><span class="pre">api.results</span></code></a>.metadata</dd>
 <dt>v (str):</dt>
-<dd>Values from each item in the key of <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata</dd>
+<dd>Values from each item in the key of <a class="reference internal" href="#api.results" title="api.results"><code class="xref py py-class docutils literal"><span class="pre">api.results</span></code></a>.metadata</dd>
 </dl>
 </dd>
 <dt>Returns:</dt>
-<dd>A list containing all the <code class="docutils literal"><span class="pre">v</span></code> values in the <code class="docutils literal"><span class="pre">k</span></code> key for the  <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata attribute.</dd>
+<dd>A list containing all the <code class="docutils literal"><span class="pre">v</span></code> values in the <code class="docutils literal"><span class="pre">k</span></code> key for the  <a class="reference internal" href="#api.results" title="api.results"><code class="xref py py-class docutils literal"><span class="pre">api.results</span></code></a>.metadata attribute.</dd>
 </dl>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="cse.results.links">
-<code class="descname">links</code><a class="headerlink" href="#cse.results.links" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of str: Web links to search results using <a class="reference internal" href="#cse.results.get_values" title="cse.results.get_values"><code class="xref py py-func docutils literal"><span class="pre">cse.results.get_values()</span></code></a>.</p>
+<dt id="api.results.links">
+<code class="descname">links</code><a class="headerlink" href="#api.results.links" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of str: Web links to search results using <a class="reference internal" href="#api.results.get_values" title="api.results.get_values"><code class="xref py py-func docutils literal"><span class="pre">api.results.get_values()</span></code></a>.</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="cse.results.preview">
-<code class="descname">preview</code><span class="sig-paren">(</span><em>n=10</em>, <em>k='items'</em>, <em>kheader='displayLink'</em>, <em>klink='link'</em>, <em>kdescription='snippet'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cse.html#results.preview"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cse.results.preview" title="Permalink to this definition">¶</a></dt>
+<dt id="api.results.preview">
+<code class="descname">preview</code><span class="sig-paren">(</span><em>n=10</em>, <em>k='items'</em>, <em>kheader='displayLink'</em>, <em>klink='link'</em>, <em>kdescription='snippet'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api.html#results.preview"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.results.preview" title="Permalink to this definition">¶</a></dt>
 <dd><p>Print a preview of the search results.</p>
 <dl class="docutils">
 <dt>Args:</dt>
@@ -371,21 +371,21 @@ to search webpages and images using queries.</p>
 <dt>n (int):</dt>
 <dd>Maximum number of search results to preview</dd>
 <dt>k (str):</dt>
-<dd>Key in <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata to represent</dd>
+<dd>Key in <a class="reference internal" href="#api.results" title="api.results"><code class="xref py py-class docutils literal"><span class="pre">api.results</span></code></a>.metadata to represent</dd>
 <dt>kheader (str):</dt>
-<dd>Key in <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata[<code class="docutils literal"><span class="pre">k</span></code>] to use as the header</dd>
+<dd>Key in <a class="reference internal" href="#api.results" title="api.results"><code class="xref py py-class docutils literal"><span class="pre">api.results</span></code></a>.metadata[<code class="docutils literal"><span class="pre">k</span></code>] to use as the header</dd>
 <dt>klink (str):</dt>
-<dd>Key in <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata[<code class="docutils literal"><span class="pre">k</span></code>] to use as the link if image search</dd>
+<dd>Key in <a class="reference internal" href="#api.results" title="api.results"><code class="xref py py-class docutils literal"><span class="pre">api.results</span></code></a>.metadata[<code class="docutils literal"><span class="pre">k</span></code>] to use as the link if image search</dd>
 <dt>kdescription (str):</dt>
-<dd>Key in <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata[<code class="docutils literal"><span class="pre">k</span></code>] to use as the description</dd>
+<dd>Key in <a class="reference internal" href="#api.results" title="api.results"><code class="xref py py-class docutils literal"><span class="pre">api.results</span></code></a>.metadata[<code class="docutils literal"><span class="pre">k</span></code>] to use as the description</dd>
 </dl>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
-<dt id="cse.results.save_links">
-<code class="descname">save_links</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cse.html#results.save_links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cse.results.save_links" title="Permalink to this definition">¶</a></dt>
+<dt id="api.results.save_links">
+<code class="descname">save_links</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api.html#results.save_links"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.results.save_links" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves a text file of the search result links.</p>
 <p>Saves a text file of the search result links, where each link 
 is saved in a new line. An example is provided below:</p>
@@ -404,10 +404,10 @@ is saved in a new line. An example is provided below:</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="cse.results.save_metadata">
-<code class="descname">save_metadata</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/cse.html#results.save_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#cse.results.save_metadata" title="Permalink to this definition">¶</a></dt>
+<dt id="api.results.save_metadata">
+<code class="descname">save_metadata</code><span class="sig-paren">(</span><em>file_path</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/api.html#results.save_metadata"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#api.results.save_metadata" title="Permalink to this definition">¶</a></dt>
 <dd><p>Saves a json file of the search result metadata.</p>
-<p>Saves a json file of the search result metadata from <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a>.metadata.</p>
+<p>Saves a json file of the search result metadata from <a class="reference internal" href="#api.results" title="api.results"><code class="xref py py-class docutils literal"><span class="pre">api.results</span></code></a>.metadata.</p>
 <dl class="docutils">
 <dt>Args:</dt>
 <dd><dl class="first last docutils">
@@ -433,8 +433,8 @@ in a terminal. It was intended for use inside a py file
 <dl class="docutils">
 <dt>Notes:</dt>
 <dd><ul class="first simple">
-<li><code class="docutils literal"><span class="pre">[q]</span></code> reflects key <code class="docutils literal"><span class="pre">q</span></code> in the <code class="docutils literal"><span class="pre">cseargs</span></code> parameter for <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a></li>
-<li>Optional arguments with <code class="docutils literal"><span class="pre">build_</span></code> are keys in the <code class="docutils literal"><span class="pre">buildargs</span></code> parameter for <a class="reference internal" href="#cse.results" title="cse.results"><code class="xref py py-class docutils literal"><span class="pre">cse.results</span></code></a></li>
+<li><code class="docutils literal"><span class="pre">[q]</span></code> reflects key <code class="docutils literal"><span class="pre">q</span></code> in the <code class="docutils literal"><span class="pre">cseargs</span></code> parameter for <a class="reference internal" href="#api.results" title="api.results"><code class="xref py py-class docutils literal"><span class="pre">api.results</span></code></a></li>
+<li>Optional arguments with <code class="docutils literal"><span class="pre">build_</span></code> are keys in the <code class="docutils literal"><span class="pre">buildargs</span></code> parameter for <a class="reference internal" href="#api.results" title="api.results"><code class="xref py py-class docutils literal"><span class="pre">api.results</span></code></a></li>
 </ul>
 <p>For distribution, this function must be defined in the following files:</p>
 <div class="last highlight-default"><div class="highlight"><pre><span></span><span class="c1"># In &#39;search_google/search_google/__main__.py&#39;</span>
@@ -488,7 +488,7 @@ in a terminal. It was intended for use inside a py file
 </ul>
 </li>
 <li><a class="reference internal" href="#modules">Modules</a><ul>
-<li><a class="reference internal" href="#module-cse">cse</a></li>
+<li><a class="reference internal" href="#module-api">api</a></li>
 <li><a class="reference internal" href="#cli">cli</a></li>
 </ul>
 </li>
@@ -526,7 +526,7 @@ in a terminal. It was intended for use inside a py file
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">search_google 1.0.6 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">search_google 1.0.7 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

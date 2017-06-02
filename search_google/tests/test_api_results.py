@@ -2,12 +2,12 @@
 
 from os import listdir, makedirs
 from os.path import isdir
-from search_google import cse
 from shutil import rmtree
 from tempfile import NamedTemporaryFile, mkdtemp
 from unittest import TestCase
 
 import json
+import search_google.api
 
 class resultsTest(TestCase):
 
@@ -22,7 +22,7 @@ class resultsTest(TestCase):
       'cx': '014766831074566761693:ovdpanxgl6o',
       'num': 1
     }
-    self.results = cse.results(buildargs, cseargs)
+    self.results = search_google.api.results(buildargs, cseargs)
     self.tempfile = NamedTemporaryFile().name
     self.tempdir = mkdtemp()
   

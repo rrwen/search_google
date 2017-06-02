@@ -50,8 +50,8 @@ Use as a Python module:
 
 .. code-block:: python
 
-  # Import the cse module for the results class
-  from search_google import cse
+  # Import the api module for the results class
+  import search_google.api
   
   # Define buildargs for cse api
   buildargs = {
@@ -68,7 +68,7 @@ Use as a Python module:
   }
   
   # Create a results object
-  results = cse.results(buildargs, cseargs)
+  results = search_google.api.results(buildargs, cseargs)
   
   # Download the search results to a directory
   results.download_links('downloads')
@@ -157,7 +157,7 @@ Implementation
 
 This command line tool uses the `Google Custom Search Engine (CSE) <https://developers.google.com/api-client-library/python/apis/customsearch/v1>`_ to perform web and image searches. It relies on `googleapiclient.build <https://google.github.io/google-api-python-client/docs/epy/googleapiclient.discovery-module.html#build>`_ and `cse.list <https://developers.google.com/resources/api-libraries/documentation/customsearch/v1/python/latest/customsearch_v1.cse.html>`_, where ``build`` was used to create a Google API object and ``cse`` was used to perform the searches.
 
-The class `search_google.cse <https://rrwen.github.io/search_google/#module-cse>`_ simply passed a dictionary of arguments into ``build`` and ``cse`` to process the returned results with properties and methods. `search_google.cli <https://rrwen.github.io/search_google/#module-cli>`_ was then used to create a command line interface for `search_google.cse <https://rrwen.github.io/search_google/#module-cse>`_.
+The class `search_google.api <https://rrwen.github.io/search_google/#module-api>`_ simply passed a dictionary of arguments into ``build`` and ``cse`` to process the returned results with properties and methods. `search_google.cli <https://rrwen.github.io/search_google/#module-cli>`_ was then used to create a command line interface for `search_google.api <https://rrwen.github.io/search_google/#module-api>`_.
 
 In order to use ``build`` and ``cse``, a `Google Developer API Key <https://developers.google.com/api-client-library/python/auth/api-keys>`_ and a `Google CSE ID <https://cse.google.com/all>`_ needs to be created for API access (see `search_google Setup <https://rrwen.github.io/search_google/#setup>`_). Creating these keys also required a `Gmail <https://www.google.com/gmail>`_ account for login access.
 
@@ -167,7 +167,7 @@ In order to use ``build`` and ``cse``, a `Google Developer API Key <https://deve
                     |                    
                  cse.list        <-- Google CSE
                     |
-             search_google.cse   <-- search results
+             search_google.api   <-- search results
                     |
              search_google.cli   <-- command line
 
