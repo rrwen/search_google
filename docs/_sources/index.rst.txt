@@ -209,7 +209,7 @@ The `search_google <https://pypi.python.org/pypi/search-google>`_ package may al
   # Create a results object
   results = search_google.api.results(buildargs, cseargs)
 
-For more details on module usage, see the example in `cse`_.
+For more details on module usage, see the example in `api`_.
   
 Modules
 -------

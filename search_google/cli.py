@@ -93,7 +93,14 @@ def main():
         ...
       )
   """
-  config_file = kwconfig.manage(resource_filename(Requirement.parse('search_google'),  'search_google/config.json'))
+  config_file = kwconfig.manage(
+    file_path=resource_filename(Requirement.parse('search_google'), 'search_google/config.json'),
+    defaults={
+      'build_serviceName': 'customsearch',
+      'build_version': 'v1',
+      'num': 3,
+      'option_silent': 'False',
+      'option_preview' : 10})
   
   # (commands) Main command calls
   if len(argv) > 1:
