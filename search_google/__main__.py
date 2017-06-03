@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from .cli import main
+from .cli import run
 
-main()
+run()

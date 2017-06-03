@@ -101,12 +101,18 @@ Tests
 *****
 
 1. Ensure `unittest <https://docs.python.org/2.7/library/unittest.html>`_ is available
-2. Run tests
+2. Set your `CSE ID <https://support.google.com/customsearch/answer/2649143?hl=en>`_ and `Google API developer key <https://developers.google.com/api-client-library/python/auth/api-keys>`_
+3. Run tests
+4. Reset config file to defaults
+5. Please note that this will use up 12 requests from your quota
 
 ::
   
   pip install . -I
+  python -m search_google -s cx="your_cse_id"
+  python -m search_google -s build_developerKey="your_dev_key"
   python -m unittest
+	python -m search_google -d
 
 Documentation Maintenance
 *************************

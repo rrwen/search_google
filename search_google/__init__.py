@@ -3,7 +3,7 @@
 __name__ = 'search_google'
 __author__ = 'Richard Wen'
 __email__ = 'rrwen.dev@gmail.com'
-__version__ = '1.0.8'
+__version__ = '1.0.9'
 __license__ = 'MIT'
 __description__ = 'A command line tool and module for Google API web and image search.'
 __keywords__ = [
@@ -30,4 +30,4 @@ __install_requires__ = [
 ]
 __packages__ = ['search_google']
 __package_data__ = {'search_google': ['config.json']}
-__entry_points__ = {'console_scripts': ['search_google=search_google.cli:main']}
+__entry_points__ = {'console_scripts': ['search_google=search_google.cli:run']}

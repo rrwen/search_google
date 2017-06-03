@@ -223,5 +223,5 @@ api
 cli
 ***
 
-.. autofunction:: cli.main
+.. autofunction:: cli.run
    

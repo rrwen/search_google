@@ -2,6 +2,7 @@
 
 from os import listdir, makedirs
 from os.path import isdir
+from pkg_resources import resource_filename, Requirement
 from shutil import rmtree
 from tempfile import NamedTemporaryFile, mkdtemp
 from unittest import TestCase
@@ -11,58 +12,61 @@ import search_google.api
 
 class resultsTest(TestCase):
 
-  def setUp(self):
-    buildargs = {
-      'serviceName': 'customsearch',
-      'version': 'v1',
-      'developerKey': 'AIzaSyClH2yMLZlf_cs7yHn7gi16MWMkfCeaLZg'
-    }
-    cseargs = {
-      'q': 'google',
-      'cx': '014766831074566761693:ovdpanxgl6o',
-      'num': 1
-    }
-    self.results = search_google.api.results(buildargs, cseargs)
-    self.tempfile = NamedTemporaryFile().name
-    self.tempdir = mkdtemp()
-  
-  def test_preview(self):
-    results = self.results
-    expected = None
-    self.assertTrue(expected == results.preview())
-    
-  def test_get_values(self):
-    results = self.results
-    values = results.get_values('items', 'link')
-    self.assertTrue(isinstance(values, list))
-    
-  def test_links(self):
-    results = self.results
-    expected = results.get_values('items', 'link')
-    self.assertTrue(expected == results.links)
-    
-  def test_save_links(self):
-    results = self.results
-    open(self.tempfile, 'w').close()
-    results.save_links(self.tempfile)
-    with open(self.tempfile) as f:
-      nlinks = len(f.readlines())
-    self.assertTrue(nlinks == 1)
-  
-  def test_save_metadata(self):
-    results = self.results
-    open(self.tempfile, 'w').close()
-    results.save_metadata(self.tempfile)
-    with open(self.tempfile, 'r') as f:    
-      metadata = json.load(f)
-    self.assertTrue(metadata == results.metadata)
-  
-  def test_download_links(self):
-    results = self.results
-    if not isdir(self.tempdir):
-      makedirs(self.tempdir)
-    results.download_links(self.tempdir)
-    nfiles = len(listdir(self.tempdir))
-    rmtree(self.tempdir)
-    self.assertTrue(nfiles == 1)
-    
+	def setUp(self):
+		file_path = resource_filename(Requirement.parse('search_google'), 'search_google/config.json')
+		with open(file_path, 'r') as in_file:
+			defaults = json.load(in_file)
+		buildargs = {
+			'serviceName': 'customsearch',
+			'version': 'v1',
+			'developerKey': defaults['build_developerKey']
+		}
+		cseargs = {
+			'q': 'google',
+			'num': 1,
+			'cx': defaults['cx']
+		}
+		self.results = search_google.api.results(buildargs, cseargs)
+		self.tempfile = NamedTemporaryFile().name
+		self.tempdir = mkdtemp()
+		
+	def test_preview(self):
+		results = self.results
+		expected = None
+		self.assertTrue(expected == results.preview())
+		
+	def test_get_values(self):
+		results = self.results
+		values = results.get_values('items', 'link')
+		self.assertTrue(isinstance(values, list))
+		
+	def test_links(self):
+		results = self.results
+		expected = results.get_values('items', 'link')
+		self.assertTrue(expected == results.links)
+		
+	def test_save_links(self):
+		results = self.results
+		open(self.tempfile, 'w').close()
+		results.save_links(self.tempfile)
+		with open(self.tempfile) as f:
+			nlinks = len(f.readlines())
+		self.assertTrue(nlinks == 1)
+	
+	def test_save_metadata(self):
+		results = self.results
+		open(self.tempfile, 'w').close()
+		results.save_metadata(self.tempfile)
+		with open(self.tempfile, 'r') as f:		 
+			metadata = json.load(f)
+		self.assertTrue(metadata == results.metadata)
+	
+	def test_download_links(self):
+		results = self.results
+		if not isdir(self.tempdir):
+			makedirs(self.tempdir)
+		results.download_links(self.tempdir)
+		nfiles = len(listdir(self.tempdir))
+		rmtree(self.tempdir)
+		self.assertTrue(nfiles == 1)
+		
