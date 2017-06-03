@@ -109,9 +109,9 @@ Tests
 ::
   
   pip install . -I
-  python -m search_google -s cx="your_cse_id"
-  python -m search_google -s build_developerKey="your_dev_key"
-  python -m unittest
+	python -m search_google -s cx="your_cse_id"
+	python -m search_google -s build_developerKey="your_dev_key"
+	python -m unittest
 	python -m search_google -d
 
 Documentation Maintenance
@@ -153,7 +153,10 @@ Upload to PyPi
 ::
   
   pip install . -I
-  python -m unittest
+	python -m search_google -s cx="your_cse_id"
+  python -m search_google -s build_developerKey="your_dev_key"
+	python -m unittest
+	python -m search_google -d
   sphinx-build -b html docs/source docs
   python setup.py sdist
   twine upload dist/*
