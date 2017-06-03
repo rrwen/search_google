@@ -3,7 +3,7 @@
 __name__ = 'search_google'
 __author__ = 'Richard Wen'
 __email__ = 'rrwen.dev@gmail.com'
-__version__ = '1.0.9'
+__version__ = '1.1.0'
 __license__ = 'MIT'
 __description__ = 'A command line tool and module for Google API web and image search.'
 __keywords__ = [
