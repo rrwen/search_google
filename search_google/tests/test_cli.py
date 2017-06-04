@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from os import listdir, makedirs
+from os import listdir, makedirs, remove, rmtree
 from os.path import isdir
 from search_google.cli import run
 from shutil import rmtree
