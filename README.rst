@@ -104,7 +104,7 @@ Tests
 2. Set your `CSE ID <https://support.google.com/customsearch/answer/2649143?hl=en>`_ and `Google API developer key <https://developers.google.com/api-client-library/python/auth/api-keys>`_
 3. Run tests
 4. Reset config file to defaults
-5. Please note that this will use up 12 requests from your quota
+5. Please note that this will use up 7 requests from your quota
 
 ::
 	
