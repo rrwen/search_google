@@ -68,4 +68,8 @@ class resultsTest(TestCase):
 			'--save_downloads=' + self.tempdir
 		]
 		run(argv)
+	
+	def tearDown(self):
+		remove(self.tempfile)
+		rmtree(self.tempdir)
 		
