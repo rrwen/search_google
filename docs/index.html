@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>search_google &#8212; search_google 1.1.0 documentation</title>
+    <title>search_google &#8212; search_google 1.1.1 documentation</title>
     
     <link rel="stylesheet" href="_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    './',
-        VERSION:     '1.1.0',
+        VERSION:     '1.1.1',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true,
@@ -37,7 +37,7 @@
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">search_google 1.1.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">search_google 1.1.1 documentation</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -286,16 +286,16 @@ to search webpages and images using queries.</p>
 
 <span class="c1"># Define buildargs for api api</span>
 <span class="n">buildargs</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;serviceName&quot;</span><span class="p">:</span> <span class="s2">&quot;customsearch&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;developerKey&quot;</span><span class="p">:</span> <span class="s2">&quot;your_api_key&quot;</span>
+  <span class="s2">&quot;serviceName&quot;</span><span class="p">:</span> <span class="s2">&quot;customsearch&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;v1&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;developerKey&quot;</span><span class="p">:</span> <span class="s2">&quot;your_api_key&quot;</span>
 <span class="p">}</span>
 
 <span class="c1"># Define cseargs for search</span>
 <span class="n">cseargs</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword query&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;cx&quot;</span><span class="p">:</span> <span class="s2">&quot;your_cse_id&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;num&quot;</span><span class="p">:</span> <span class="mi">3</span>
+  <span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;keyword query&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;cx&quot;</span><span class="p">:</span> <span class="s2">&quot;your_cse_id&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;num&quot;</span><span class="p">:</span> <span class="mi">3</span>
 <span class="p">}</span>
 
 <span class="c1"># Create a results object</span>
@@ -444,7 +444,7 @@ in a terminal. It was intended for use inside a py file
 <span class="c1"># In &#39;search_google/search_google.py&#39;</span>
 <span class="kn">from</span> <span class="nn">search_google.cli</span> <span class="k">import</span> <span class="n">run</span>
 <span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-        <span class="n">run</span><span class="p">()</span>
+  <span class="n">run</span><span class="p">()</span>
 
 <span class="c1"># In &#39;search_google/__init__.py&#39;</span>
 <span class="n">__entry_points__</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;console_scripts&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;search_google=search_google.cli:run&#39;</span><span class="p">]}</span>
@@ -458,12 +458,12 @@ in a terminal. It was intended for use inside a py file
 
 <span class="c1"># Create command line arguments</span>
 <span class="n">argv</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s1">&#39;cli.py&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;google&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;--searchType=image&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;--build_developerKey=your_dev_key&#39;</span><span class="p">,</span>
-        <span class="s1">&#39;--cx=your_cx_id&#39;</span>
-        <span class="s1">&#39;--num=1&#39;</span>
+  <span class="s1">&#39;cli.py&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;google&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;--searchType=image&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;--build_developerKey=your_dev_key&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;--cx=your_cx_id&#39;</span>
+  <span class="s1">&#39;--num=1&#39;</span>
 <span class="p">]</span>
 
 <span class="c1"># Run command line</span>
@@ -538,7 +538,7 @@ in a terminal. It was intended for use inside a py file
         <li class="right" >
           <a href="py-modindex.html" title="Python Module Index"
              >modules</a> |</li>
-        <li class="nav-item nav-item-0"><a href="#">search_google 1.1.0 documentation</a> &#187;</li> 
+        <li class="nav-item nav-item-0"><a href="#">search_google 1.1.1 documentation</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
