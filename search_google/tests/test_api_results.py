@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
-from os import listdir
-from os.path import isdir
+from os import listdir, remove
+from os.path import isdir, isfile
 from pkg_resources import resource_filename, Requirement
 from shutil import rmtree
 from tempfile import TemporaryFile, TemporaryDirectory
@@ -69,4 +69,10 @@ class resultsTest(TestCase):
     nfiles = len(listdir(self.tempdir))
     rmtree(self.tempdir)
     self.assertTrue(nfiles == 1)
+  
+  def tearDown(self):
+    if isfile(self.tempfile):
+      remove(self.tempfile)
+    if isdir(self.tempdir):
+      rmtree(self.tempdir)
     
