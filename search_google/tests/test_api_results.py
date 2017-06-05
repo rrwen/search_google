@@ -4,7 +4,7 @@ from os import listdir, makedirs
 from os.path import isdir
 from pkg_resources import resource_filename, Requirement
 from shutil import rmtree
-from tempfile import NamedTemporaryFile, mkdtemp
+from tempfile import TemporaryFile, TemporaryDirectory
 from unittest import TestCase
 
 import json
@@ -27,8 +27,8 @@ class resultsTest(TestCase):
       'cx': defaults['cx']
     }
     self.results = search_google.api.results(buildargs, cseargs)
-    self.tempfile = NamedTemporaryFile().name
-    self.tempdir = mkdtemp()
+    self.tempfile = TemporaryFile().name
+    self.tempdir = TemporaryDirectory().name
     
   def test_preview(self):
     results = self.results
