@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from os import listdir, makedirs
+from os import listdir
 from os.path import isdir
 from pkg_resources import resource_filename, Requirement
 from shutil import rmtree
@@ -27,7 +27,9 @@ class resultsTest(TestCase):
       'cx': defaults['cx']
     }
     self.results = search_google.api.results(buildargs, cseargs)
-    self.tempfile = TemporaryFile().name
+    tempfile = TemporaryFile()
+    self.tempfile = tempfile.name
+    tempfile.close()
     self.tempdir = TemporaryDirectory().name
     
   def test_preview(self):
@@ -63,8 +65,6 @@ class resultsTest(TestCase):
   
   def test_download_links(self):
     results = self.results
-    if not isdir(self.tempdir):
-      makedirs(self.tempdir)
     results.download_links(self.tempdir)
     nfiles = len(listdir(self.tempdir))
     rmtree(self.tempdir)
