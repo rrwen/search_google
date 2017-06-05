@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 from os import listdir, remove
-from os.path import isdir
+from os.path import isdir, isfile
 from search_google.cli import run
 from shutil import rmtree
 from tempfile import NamedTemporaryFile, TemporaryDirectory
@@ -13,9 +13,9 @@ class resultsTest(TestCase):
 
   def setUp(self):
     tempfile = NamedTemporaryFile()
-    self.out_path = tempfile.name
+    self.tempfile = tempfile.name
     tempfile.close()
-    self.out_dir = TemporaryDirectory().name
+    self.tempdir = TemporaryDirectory().name
     
   def test_search(self):
     argv = [
@@ -39,7 +39,7 @@ class resultsTest(TestCase):
       'cli.py',
       'google',
       '--num=1',
-      '--save_links=' + self.out_path
+      '--save_links=' + self.tempfile
     ]
     run(argv)
   
@@ -48,7 +48,7 @@ class resultsTest(TestCase):
       'cli.py',
       'google',
       '--num=1',
-      '--save_metadata=' + self.out_path
+      '--save_metadata=' + self.tempfile
     ]
     run(argv)
   
@@ -57,7 +57,7 @@ class resultsTest(TestCase):
       'cli.py',
       'google',
       '--num=1',
-      '--save_downloads=' + self.out_dir
+      '--save_downloads=' + self.tempdir
     ]
     run(argv)
   
@@ -67,11 +67,13 @@ class resultsTest(TestCase):
       'google',
       '--searchType=image',
       '--num=1',
-      '--save_downloads=' + self.out_dir
+      '--save_downloads=' + self.tempdir
     ]
     run(argv)
     
   def tearDown(self):
-    remove(self.out_path)
-    rmtree(self.out_dir)
+    if isfile(self.tempfile):
+      remove(self.tempfile)
+    if isdir(self.tempdir):
+      rmtree(self.tempdir)
     
