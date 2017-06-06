@@ -132,7 +132,7 @@ class results:
       n (int):
         Maximum number of search results to preview
       k (str):
-        Key in :class:`api.results`.metadata to represent
+        Key in :class:`api.results`.metadata to preview
       kheader (str):
         Key in :class:`api.results`.metadata[``k``] to use as the header
       klink (str):

@@ -199,8 +199,9 @@
   <span class="n">results</span> <span class="o">=</span> <span class="n">search_google</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">results</span><span class="p">(</span><span class="n">buildargs</span><span class="p">,</span> <span class="n">cseargs</span><span class="p">)</span>
   
   <span class="c1"># (cse_print) Print a preview of results</span>
-  <span class="k">if</span> <span class="n">optionargs</span><span class="p">[</span><span class="s1">&#39;silent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;true&#39;</span><span class="p">:</span>
-    <span class="n">results</span><span class="o">.</span><span class="n">preview</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">optionargs</span><span class="p">[</span><span class="s1">&#39;preview&#39;</span><span class="p">])</span>
+  <span class="k">if</span> <span class="s1">&#39;silent&#39;</span> <span class="ow">in</span> <span class="n">optionargs</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">optionargs</span><span class="p">[</span><span class="s1">&#39;silent&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s1">&#39;true&#39;</span><span class="p">:</span>
+      <span class="n">results</span><span class="o">.</span><span class="n">preview</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">optionargs</span><span class="p">[</span><span class="s1">&#39;preview&#39;</span><span class="p">])</span>
   
   <span class="c1"># (cse_save) Save links and metadata</span>
   <span class="k">if</span> <span class="s1">&#39;links&#39;</span> <span class="ow">in</span> <span class="n">saveargs</span><span class="p">:</span>
