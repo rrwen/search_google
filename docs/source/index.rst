@@ -79,7 +79,7 @@ For help in the console, use::
   
   search_google -h
   
-Please that the `Setup`_ section was completed::
+Please ensure that the `Setup`_ section was completed::
   
   search_google -s cx="your_cse_id"
   search_google -s build_developerKey="your_dev_key"
