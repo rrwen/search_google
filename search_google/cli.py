@@ -149,8 +149,9 @@ def run(argv=argv):
   results = search_google.api.results(buildargs, cseargs)
   
   # (cse_print) Print a preview of results
-  if optionargs['silent'].lower() != 'true':
-    results.preview(n=optionargs['preview'])
+  if 'silent' in optionargs:
+    if optionargs['silent'].lower() != 'true':
+      results.preview(n=optionargs['preview'])
   
   # (cse_save) Save links and metadata
   if 'links' in saveargs:
