@@ -9,7 +9,7 @@ from unittest import TestCase
 
 import json
 
-class resultsTest(TestCase):
+class cliTest(TestCase):
 
   def setUp(self):
     tempfile = NamedTemporaryFile()
