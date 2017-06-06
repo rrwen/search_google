@@ -158,6 +158,3 @@ texinfo_documents = [
      author, package.__name__, package.__description__,
      'Miscellaneous'),
 ]
-
-
-
