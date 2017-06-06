@@ -100,11 +100,13 @@ Install from ``git`` cloned source:
 Tests
 *****
 
-1. Ensure `unittest <https://docs.python.org/2.7/library/unittest.html>`_ is available
-2. Set your `CSE ID <https://support.google.com/customsearch/answer/2649143?hl=en>`_ and `Google API developer key <https://developers.google.com/api-client-library/python/auth/api-keys>`_
-3. Run tests
-4. Reset config file to defaults
-5. Please note that this will use up 7 requests from your quota
+1. Clone into current path ``git clone https://github.com/rrwen/search_google``
+2. Enter into folder ``cd search_google``
+3. Ensure `unittest <https://docs.python.org/2.7/library/unittest.html>`_ is available
+4. Set your `CSE ID <https://support.google.com/customsearch/answer/2649143?hl=en>`_ and `Google API developer key <https://developers.google.com/api-client-library/python/auth/api-keys>`_
+5. Run tests
+6. Reset config file to defaults
+7. Please note that this will use up 7 requests from your quota
 
 ::
   
