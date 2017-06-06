@@ -151,7 +151,7 @@ def run(argv=argv):
   # (cse_print) Print a preview of results
   if 'silent' in optionargs:
     if optionargs['silent'].lower() != 'true':
-      results.preview(n=optionargs['preview'])
+      results.preview(n=int(optionargs['preview']))
   
   # (cse_save) Save links and metadata
   if 'links' in saveargs:
