@@ -24,6 +24,7 @@ class resultsTest(TestCase):
     cseargs = {
       'q': 'google',
       'num': 1,
+      'fileType': 'png',
       'cx': defaults['cx']
     }
     self.results = search_google.api.results(buildargs, cseargs)
