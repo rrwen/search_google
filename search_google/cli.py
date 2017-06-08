@@ -112,6 +112,7 @@ def run(argv=argv):
       'build_serviceName': 'customsearch',
       'build_version': 'v1',
       'num': 3,
+      'fileType': 'png',
       'option_silent': 'False',
       'option_preview' : 10})
   

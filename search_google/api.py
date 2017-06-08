@@ -78,6 +78,7 @@ class results:
     },
     cseargs={
       'num': 3,
+      'fileType': 'png'
     }):
     self.buildargs = buildargs
     self.cseargs = cseargs
@@ -94,7 +95,7 @@ class results:
     if not path.exists(dir_path):
       makedirs(dir_path)
     for i, url in enumerate(links):
-      ext = path.splitext(url)[1]
+      ext = self.cseargs['fileType']
       ext = '.html' if ext == '' else ext
       file_name = self.cseargs['q'].replace(' ', '_') + '_' + str(i) + ext
       file_path = path.join(dir_path, file_name)
