@@ -96,7 +96,7 @@ class results:
       makedirs(dir_path)
     for i, url in enumerate(links):
       ext = self.cseargs['fileType']
-      ext = '.html' if ext == '' else ext
+      ext = '.html' if ext == '' else '.' + ext
       file_name = self.cseargs['q'].replace(' ', '_') + '_' + str(i) + ext
       file_path = path.join(dir_path, file_name)
       r = requests.get(url, stream=True)
