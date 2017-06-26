@@ -96,7 +96,7 @@ class results:
       makedirs(dir_path)
     for i, url in enumerate(links):
       if 'start' in self.cseargs:
-        i += int(self.cseargs)
+        i += int(self.cseargs['start'])
       ext = self.cseargs['fileType']
       ext = '.html' if ext == '' else '.' + ext
       file_name = self.cseargs['q'].replace(' ', '_') + '_' + str(i) + ext
@@ -151,6 +151,8 @@ class results:
   
     # (cse_print) Print results
     for i, kv in enumerate(items[:n]):
+      if 'start' in self.cseargs:
+        i += int(self.cseargs['start'])
       
       # (print_header) Print result header
       header = '\n[' + str(i) + '] ' + kv[kheader]
