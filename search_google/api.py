@@ -95,6 +95,8 @@ class results:
     if not path.exists(dir_path):
       makedirs(dir_path)
     for i, url in enumerate(links):
+      if 'start' in self.cseargs:
+        i += int(self.cseargs)
       ext = self.cseargs['fileType']
       ext = '.html' if ext == '' else '.' + ext
       file_name = self.cseargs['q'].replace(' ', '_') + '_' + str(i) + ext
