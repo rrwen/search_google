@@ -13,9 +13,9 @@ class cliTest(TestCase):
 
   def setUp(self):
     tempfile = NamedTemporaryFile()
-    self.tempfile = tempfile.name
+    self.tempfile = str(tempfile.name)
     tempfile.close()
-    self.tempdir = TemporaryDirectory().name
+    self.tempdir = str(TemporaryDirectory().name)
     
   def test_search(self):
     argv = [
