@@ -1,0 +1,12 @@
+language: python
+python:
+  - "2.7"
+  - "3.6"
+cache: pip
+install: 
+  - pip install git+https://github.com/rrwen/search_google
+script:
+  - search_google -s cx="014766831074566761693:l7powwgllni"
+  - search_google -s build_developerKey="AIzaSyDLzW6n52tcRTGboOOepiKelNVdLC9qSzA"
+  - python -m unittest
+  - search_google -d
