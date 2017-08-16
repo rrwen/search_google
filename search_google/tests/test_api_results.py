@@ -29,9 +29,9 @@ class resultsTest(TestCase):
     }
     self.results = search_google.api.results(buildargs, cseargs)
     tempfile = TemporaryFile()
-    self.tempfile = tempfile.name
+    self.tempfile = str(tempfile.name)
     tempfile.close()
-    self.tempdir = TemporaryDirectory().name
+    self.tempdir = str(TemporaryDirectory().name)
     
   def test_preview(self):
     results = self.results
