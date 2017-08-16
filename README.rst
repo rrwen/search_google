@@ -13,14 +13,16 @@ A command line tool and module for Google API web and image search.
     :target: https://badge.fury.io/py/search-google
 .. image:: https://img.shields.io/github/issues/rrwen/search_google.svg
     :target: https://github.com/rrwen/search_google/issues
+.. image:: https://travis-ci.org/rrwen/search_google.svg?branch=master
+    :target: https://travis-ci.org/rrwen/search_google
+.. image:: https://coveralls.io/repos/github/rrwen/search_google/badge.svg?branch=master
+    :target: https://coveralls.io/github/rrwen/search_google?branch=master
+.. image:: https://img.shields.io/badge/license-MIT-blue.svg
+    :target: https://raw.githubusercontent.com/rrwen/search_google/master/LICENSE
 .. image:: https://img.shields.io/github/forks/rrwen/search_google.svg
     :target: https://github.com/rrwen/search_google/network
 .. image:: https://img.shields.io/github/stars/rrwen/search_google.svg
     :target: https://github.com/rrwen/search_google/stargazers
-.. image:: https://img.shields.io/badge/license-MIT-blue.svg
-    :target: https://raw.githubusercontent.com/rrwen/search_google/master/LICENSE
-.. image:: https://travis-ci.org/rrwen/search_google.svg?branch=master
-    :target: https://travis-ci.org/rrwen/search_google
 .. image:: https://img.shields.io/twitter/url/https/github.com/rrwen/search_google.svg?style=social
     :target: https://twitter.com/intent/tweet?text=%23python%20%23dataextraction%20tool%20for%20%23googlesearch%20results%20and%20%23googleimages:%20https://github.com/rrwen/search_google
 
