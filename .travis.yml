@@ -5,8 +5,11 @@ python:
 cache: pip
 install: 
   - pip install git+https://github.com/rrwen/search_google
+  - pip install coveralls
 script:
   - search_google -s cx="014766831074566761693:l7powwgllni"
   - search_google -s build_developerKey="AIzaSyDLzW6n52tcRTGboOOepiKelNVdLC9qSzA"
-  - python -m unittest
+  - coverage run --source=search_google -m unittest
   - search_google -d
+after_success:
+  - coveralls
