@@ -2,7 +2,10 @@
 
 from apiclient.discovery import build
 from os import makedirs, path
-from urllib.request import urlopen
+try:
+  from urllib.request import urlopen
+except ImportError:
+  from urllib import urlopen
 
 import json
 import shutil
