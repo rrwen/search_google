@@ -22,7 +22,7 @@ A command line tool and module for Google API web and image search.
 .. image:: https://travis-ci.org/rrwen/search_google.svg?branch=master
     :target: https://travis-ci.org/rrwen/search_google
 .. image:: https://img.shields.io/twitter/url/https/github.com/rrwen/search_google.svg?style=social
-    :target: https://twitter.com/intent/tweet?text=%23python%20%tool%20for%20%23googlesearch%20results%20and%20%23googleimages:%20https://github.com/rrwen/search_google
+    :target: https://twitter.com/intent/tweet?text=%23python%20%23dataextraction%20tool%20for%20%23googlesearch%20results%20and%20%23googleimages:%20https://github.com/rrwen/search_google
 
 Install
 -------
