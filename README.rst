@@ -11,16 +11,14 @@ A command line tool and module for Google API web and image search.
 
 .. image:: https://badge.fury.io/py/search-google.svg
     :target: https://badge.fury.io/py/search-google
-.. image:: https://img.shields.io/github/issues/rrwen/search_google.svg
-    :target: https://github.com/rrwen/search_google/issues
 .. image:: https://travis-ci.org/rrwen/search_google.svg?branch=master
     :target: https://travis-ci.org/rrwen/search_google
 .. image:: https://coveralls.io/repos/github/rrwen/search_google/badge.svg?branch=master
     :target: https://coveralls.io/github/rrwen/search_google?branch=master
+.. image:: https://img.shields.io/github/issues/rrwen/search_google.svg
+    :target: https://github.com/rrwen/search_google/issues
 .. image:: https://img.shields.io/badge/license-MIT-blue.svg
     :target: https://raw.githubusercontent.com/rrwen/search_google/master/LICENSE
-.. image:: https://img.shields.io/github/forks/rrwen/search_google.svg
-    :target: https://github.com/rrwen/search_google/network
 .. image:: https://img.shields.io/github/stars/rrwen/search_google.svg
     :target: https://github.com/rrwen/search_google/stargazers
 .. image:: https://img.shields.io/twitter/url/https/github.com/rrwen/search_google.svg?style=social
@@ -112,13 +110,9 @@ Code contributions are submitted via `pull requests <https://help.github.com/art
 
 1. Ensure that you pass the `Tests`_
 2. Create a new `pull request <https://github.com/rrwen/search_google/pulls>`_
-3. Provide an explanation of the changes as specified below:
-    * **Purpose**: Describe the purpose of the changes
-    * **Description**: Describe and summarize the overall changes made
-    * **Changes**: List and describe general changes made to each file and component
-    * **Notes** (Optional): Text not applicable to the above
+3. Provide an explanation of the changes
 
-An example of the code contribution explanation is provided below:
+A template of the code contribution explanation is provided below:
 
 ::
 
